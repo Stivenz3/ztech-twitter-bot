@@ -89,7 +89,7 @@ class ZTechBot:
             logger.info(f"📝 Tipo de publicación seleccionado: {post_type}")
             
             # Generar contenido según el tipo
-            if post_type in ['hacks', 'protips', 'top_lists', 'curiosities', 'controversial', 'history']:
+            if post_type in ['hacks', 'protips', 'top_lists', 'curiosities', 'controversial', 'history', 'trends', 'reviews']:
                 return self._post_generated_content(post_type)
             
             # Obtener contenido fresco para noticias

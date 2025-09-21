@@ -40,7 +40,7 @@ def test_improved_ai():
     print("\n🧪 Probando generación de contenido mejorado...")
     
     # Probar diferentes tipos
-    content_types_to_test = ['hacks', 'protips', 'curiosities', 'controversial']
+    content_types_to_test = ['hacks', 'protips', 'curiosities', 'controversial', 'top_lists', 'history', 'trends', 'reviews']
     
     for content_type in content_types_to_test:
         print(f"\n📝 Generando {content_type}...")

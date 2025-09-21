@@ -262,6 +262,194 @@ Formato de ejemplo:
 [Explicación detallada de 500+ caracteres sobre tendencias de desarrollo de IA, capacidades de automatización, análisis del mercado laboral y el futuro del desarrollo de software]"
 
 Crea 1-2 versiones de este tweet controversial detallado."""
+            },
+            
+            'top_lists': {
+                'en': """Create an engaging tech top list tweet with detailed explanations. The tweet should have TWO parts:
+
+PART 1 - The Hook (200-280 characters):
+- Start with "TOP 5:" or "RANKING:"
+- Present a compelling tech list or ranking
+- Use engaging emojis and numbers
+- Include relevant hashtags
+- Make it shareable and interesting
+
+PART 2 - The Explanation (500+ characters):
+- Provide detailed explanations for each item in the list
+- Include specific examples, data, or evidence
+- Explain WHY each item deserves its ranking
+- Add context about criteria and methodology
+- Make it educational and comprehensive
+
+Example format:
+"TOP 5: Las mejores herramientas de desarrollo para 2024! 🛠️
+
+[Detailed 500+ character explanation about each tool, why they're ranked this way, their features, benefits, and how they compare to alternatives]"
+
+Create 1-2 versions of this detailed top list tweet.""",
+                'es': """Crea un tweet de ranking tecnológico atractivo con explicaciones detalladas. El tweet debe tener DOS partes:
+
+PARTE 1 - El Gancho (200-280 caracteres):
+- Comienza con "TOP 5:" o "RANKING:"
+- Presenta una lista o ranking tech convincente
+- Usa emojis atractivos y números
+- Incluye hashtags relevantes
+- Hazlo compartible e interesante
+
+PARTE 2 - La Explicación (500+ caracteres):
+- Proporciona explicaciones detalladas para cada elemento de la lista
+- Incluye ejemplos específicos, datos o evidencia
+- Explica POR QUÉ cada elemento merece su ranking
+- Añade contexto sobre criterios y metodología
+- Hazlo educativo y comprensivo
+
+Formato de ejemplo:
+"TOP 5: ¡Las mejores herramientas de desarrollo para 2024! 🛠️
+
+[Explicación detallada de 500+ caracteres sobre cada herramienta, por qué están rankeadas así, sus características, beneficios y cómo se comparan con alternativas]"
+
+Crea 1-2 versiones de este tweet de ranking detallado."""
+            },
+            
+            'history': {
+                'en': """Create an engaging tech history tweet with detailed context. The tweet should have TWO parts:
+
+PART 1 - The Hook (200-280 characters):
+- Start with "HISTORY:" or "ON THIS DAY:"
+- Share an interesting tech historical fact
+- Use engaging emojis and dates
+- Include relevant hashtags
+- Make it educational and nostalgic
+
+PART 2 - The Explanation (500+ characters):
+- Provide detailed historical context and background
+- Explain the significance and impact of the event
+- Include information about key people involved
+- Describe how it influenced modern technology
+- Make it educational and comprehensive
+
+Example format:
+"HISTORY: On this day in 1995, Amazon was founded! 📚➡️🌐
+
+[Detailed 500+ character explanation about Amazon's founding, its evolution from bookstore to tech giant, key milestones, and its impact on e-commerce and cloud computing]"
+
+Create 1-2 versions of this detailed history tweet.""",
+                'es': """Crea un tweet de historia tecnológica atractivo con contexto detallado. El tweet debe tener DOS partes:
+
+PARTE 1 - El Gancho (200-280 caracteres):
+- Comienza con "HISTORIA:" o "UN DÍA COMO HOY:"
+- Comparte un hecho histórico tecnológico interesante
+- Usa emojis atractivos y fechas
+- Incluye hashtags relevantes
+- Hazlo educativo y nostálgico
+
+PARTE 2 - La Explicación (500+ caracteres):
+- Proporciona contexto histórico detallado y antecedentes
+- Explica la importancia e impacto del evento
+- Incluye información sobre las personas clave involucradas
+- Describe cómo influyó en la tecnología moderna
+- Hazlo educativo y comprensivo
+
+Formato de ejemplo:
+"HISTORIA: ¡Un día como hoy en 1995, Amazon fue fundada! 📚➡️🌐
+
+[Explicación detallada de 500+ caracteres sobre la fundación de Amazon, su evolución de librería a gigante tech, hitos clave y su impacto en e-commerce y computación en la nube]"
+
+Crea 1-2 versiones de este tweet de historia detallado."""
+            },
+            
+            'trends': {
+                'en': """Create an engaging tech trends analysis tweet with detailed insights. The tweet should have TWO parts:
+
+PART 1 - The Hook (200-280 characters):
+- Start with "TREND:" or "ANALYSIS:"
+- Present a current or emerging tech trend
+- Use engaging emojis and trend indicators
+- Include relevant hashtags
+- Make it timely and relevant
+
+PART 2 - The Explanation (500+ characters):
+- Provide detailed analysis of the trend
+- Include data, statistics, or market insights
+- Explain WHY this trend is important
+- Discuss implications for the industry
+- Make it educational and forward-looking
+
+Example format:
+"TREND: AI-powered coding assistants are revolutionizing development! 🤖💻
+
+[Detailed 500+ character analysis about the trend, market data, adoption rates, benefits, challenges, and future implications for developers and the tech industry]"
+
+Create 1-2 versions of this detailed trends tweet.""",
+                'es': """Crea un tweet de análisis de tendencias tech atractivo con insights detallados. El tweet debe tener DOS partes:
+
+PARTE 1 - El Gancho (200-280 caracteres):
+- Comienza con "TENDENCIA:" o "ANÁLISIS:"
+- Presenta una tendencia tech actual o emergente
+- Usa emojis atractivos e indicadores de tendencia
+- Incluye hashtags relevantes
+- Hazlo oportuno y relevante
+
+PARTE 2 - La Explicación (500+ caracteres):
+- Proporciona análisis detallado de la tendencia
+- Incluye datos, estadísticas o insights del mercado
+- Explica POR QUÉ esta tendencia es importante
+- Discute implicaciones para la industria
+- Hazlo educativo y visionario
+
+Formato de ejemplo:
+"TENDENCIA: ¡Los asistentes de código con IA están revolucionando el desarrollo! 🤖💻
+
+[Análisis detallado de 500+ caracteres sobre la tendencia, datos del mercado, tasas de adopción, beneficios, desafíos e implicaciones futuras para desarrolladores y la industria tech]"
+
+Crea 1-2 versiones de este tweet de tendencias detallado."""
+            },
+            
+            'reviews': {
+                'en': """Create an engaging tech review tweet with detailed analysis. The tweet should have TWO parts:
+
+PART 1 - The Hook (200-280 characters):
+- Start with "REVIEW:" or "ANALYSIS:"
+- Present a tech product, service, or tool review
+- Use engaging emojis and rating indicators
+- Include relevant hashtags
+- Make it informative and honest
+
+PART 2 - The Explanation (500+ characters):
+- Provide detailed pros and cons analysis
+- Include specific examples and use cases
+- Explain the target audience and use cases
+- Discuss value proposition and alternatives
+- Make it educational and comprehensive
+
+Example format:
+"REVIEW: GitHub Copilot - Game changer or overhyped? 🤖⭐
+
+[Detailed 500+ character review covering features, performance, pricing, pros, cons, use cases, and comparison with alternatives]"
+
+Create 1-2 versions of this detailed review tweet.""",
+                'es': """Crea un tweet de reseña tech atractivo con análisis detallado. El tweet debe tener DOS partes:
+
+PARTE 1 - El Gancho (200-280 caracteres):
+- Comienza con "RESEÑA:" o "ANÁLISIS:"
+- Presenta una reseña de producto, servicio o herramienta tech
+- Usa emojis atractivos e indicadores de calificación
+- Incluye hashtags relevantes
+- Hazlo informativo y honesto
+
+PARTE 2 - La Explicación (500+ caracteres):
+- Proporciona análisis detallado de pros y contras
+- Incluye ejemplos específicos y casos de uso
+- Explica el público objetivo y casos de uso
+- Discute propuesta de valor y alternativas
+- Hazlo educativo y comprensivo
+
+Formato de ejemplo:
+"RESEÑA: GitHub Copilot - ¿Cambio de juego o sobrevalorado? 🤖⭐
+
+[Reseña detallada de 500+ caracteres cubriendo características, rendimiento, precios, pros, contras, casos de uso y comparación con alternativas]"
+
+Crea 1-2 versiones de este tweet de reseña detallado."""
             }
         }
     
@@ -450,6 +638,11 @@ Crea 1-2 versiones de este tweet controversial detallado."""
         # Remover texto adicional después de hashtags
         if 'Versión' in content:
             content = content.split('Versión')[0].strip()
+        
+        # Remover contenido muy corto o inválido
+        if len(content) < 50 or content.strip() in ['###', '---', '***']:
+            logger.warning("⚠️ Contenido generado muy corto o inválido, reintentando...")
+            return None
         
         # Para contenido mejorado, permitir más caracteres
         if len(content) > 1000:
