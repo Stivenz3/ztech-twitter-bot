@@ -178,6 +178,62 @@ class ContentGenerator:
                 "🔒 HISTORIA: ¡La primera contraseña de computadora fue creada en 1961 en MIT!"
             ]
         }
+        
+        # Tendencias tecnológicas
+        self.tech_trends = {
+            'en': [
+                "🚀 TREND: AI-powered coding assistants are revolutionizing development!",
+                "🌐 TREND: Cloud computing is becoming the new standard for businesses!",
+                "📱 TREND: Mobile-first development is no longer optional!",
+                "🔒 TREND: Cybersecurity is becoming more critical than ever!",
+                "🤖 TREND: Machine learning is transforming every industry!",
+                "⚡ TREND: Edge computing is bringing processing closer to users!",
+                "🌍 TREND: Sustainable technology is the future of innovation!",
+                "📊 TREND: Data analytics is driving business decisions!",
+                "🎮 TREND: Gaming technology is pushing hardware boundaries!",
+                "💡 TREND: IoT devices are connecting everything around us!"
+            ],
+            'es': [
+                "🚀 TENDENCIA: ¡Los asistentes de código con IA están revolucionando el desarrollo!",
+                "🌐 TENDENCIA: ¡La computación en la nube se está convirtiendo en el nuevo estándar!",
+                "📱 TENDENCIA: ¡El desarrollo mobile-first ya no es opcional!",
+                "🔒 TENDENCIA: ¡La ciberseguridad se está volviendo más crítica que nunca!",
+                "🤖 TENDENCIA: ¡El machine learning está transformando cada industria!",
+                "⚡ TENDENCIA: ¡Edge computing está acercando el procesamiento a los usuarios!",
+                "🌍 TENDENCIA: ¡La tecnología sostenible es el futuro de la innovación!",
+                "📊 TENDENCIA: ¡El análisis de datos está impulsando decisiones empresariales!",
+                "🎮 TENDENCIA: ¡La tecnología gaming está empujando los límites del hardware!",
+                "💡 TENDENCIA: ¡Los dispositivos IoT están conectando todo a nuestro alrededor!"
+            ]
+        }
+        
+        # Reseñas tecnológicas
+        self.tech_reviews = {
+            'en': [
+                "⭐ REVIEW: VS Code is the best free code editor for developers!",
+                "📱 REVIEW: iPhone 15 Pro Max delivers exceptional camera quality!",
+                "💻 REVIEW: MacBook Air M2 offers incredible performance for the price!",
+                "🎮 REVIEW: PlayStation 5 continues to impress with exclusive games!",
+                "🔒 REVIEW: 1Password remains the gold standard for password managers!",
+                "☁️ REVIEW: AWS dominates cloud computing for good reasons!",
+                "📊 REVIEW: Tableau excels at data visualization and analytics!",
+                "🎵 REVIEW: Spotify's algorithm keeps getting better at recommendations!",
+                "📧 REVIEW: Gmail's spam filtering is still the industry leader!",
+                "🌐 REVIEW: Chrome's developer tools are unmatched in the browser space!"
+            ],
+            'es': [
+                "⭐ RESEÑA: ¡VS Code es el mejor editor de código gratuito para desarrolladores!",
+                "📱 RESEÑA: ¡iPhone 15 Pro Max ofrece calidad de cámara excepcional!",
+                "💻 RESEÑA: ¡MacBook Air M2 ofrece rendimiento increíble por el precio!",
+                "🎮 RESEÑA: ¡PlayStation 5 sigue impresionando con juegos exclusivos!",
+                "🔒 RESEÑA: ¡1Password sigue siendo el estándar de oro para gestores de contraseñas!",
+                "☁️ RESEÑA: ¡AWS domina la computación en la nube por buenas razones!",
+                "📊 RESEÑA: ¡Tableau sobresale en visualización de datos y análisis!",
+                "🎵 RESEÑA: ¡El algoritmo de Spotify sigue mejorando en recomendaciones!",
+                "📧 RESEÑA: ¡El filtro de spam de Gmail sigue siendo líder en la industria!",
+                "🌐 RESEÑA: ¡Las herramientas de desarrollador de Chrome no tienen igual!"
+            ]
+        }
     
     def generate_content(self, content_type: str) -> Optional[str]:
         """
@@ -202,6 +258,10 @@ class ContentGenerator:
                 return self._generate_controversial()
             elif content_type == 'history':
                 return self._generate_history()
+            elif content_type == 'trends':
+                return self._generate_trends()
+            elif content_type == 'reviews':
+                return self._generate_reviews()
             else:
                 logger.warning(f"⚠️ Tipo de contenido no soportado: {content_type}")
                 return None
@@ -313,6 +373,14 @@ class ContentGenerator:
             'history': {
                 'en': ['#history', '#techhistory', '#vintage'],
                 'es': ['#historia', '#historiatech', '#vintage']
+            },
+            'trends': {
+                'en': ['#trends', '#techtrends', '#innovation'],
+                'es': ['#tendencias', '#techtrends', '#innovacion']
+            },
+            'reviews': {
+                'en': ['#review', '#techreview', '#analysis'],
+                'es': ['#reseña', '#techreview', '#analisis']
             }
         }
         
@@ -330,7 +398,7 @@ class ContentGenerator:
         weights = list(Config.POST_TYPE_WEIGHTS.values())
         
         # Filtrar solo los tipos que podemos generar
-        generatable_types = ['hacks', 'protips', 'top_lists', 'curiosities', 'controversial', 'history']
+        generatable_types = ['hacks', 'protips', 'top_lists', 'curiosities', 'controversial', 'history', 'trends', 'reviews']
         filtered_types = [t for t in types if t in generatable_types]
         filtered_weights = [Config.POST_TYPE_WEIGHTS[t] for t in filtered_types]
         
@@ -369,3 +437,27 @@ class ContentGenerator:
             content += random.choice(variations)
         
         return content
+    
+    def _generate_trends(self) -> str:
+        """Genera contenido de tendencias"""
+        trends = self.tech_trends.get(self.language, self.tech_trends['es'])
+        content = random.choice(trends)
+        
+        # Agregar variación para evitar duplicados
+        content = self._add_variation(content)
+        
+        # Agregar hashtags
+        hashtags = self._get_hashtags_for_type('trends')
+        return f"{content}\n\n{hashtags}"
+    
+    def _generate_reviews(self) -> str:
+        """Genera contenido de reseñas"""
+        reviews = self.tech_reviews.get(self.language, self.tech_reviews['es'])
+        content = random.choice(reviews)
+        
+        # Agregar variación para evitar duplicados
+        content = self._add_variation(content)
+        
+        # Agregar hashtags
+        hashtags = self._get_hashtags_for_type('reviews')
+        return f"{content}\n\n{hashtags}"
