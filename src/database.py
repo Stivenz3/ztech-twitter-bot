@@ -150,7 +150,7 @@ class DatabaseManager:
         Verifica si el contenido ya fue procesado
         
         Args:
-            content_hash: Hash del contenido a verificar
+            content_hash: Hash del contenido o enlace a verificar
             
         Returns:
             True si ya fue procesado, False en caso contrario
@@ -158,11 +158,24 @@ class DatabaseManager:
         try:
             with sqlite3.connect(self.db_path) as conn:
                 cursor = conn.cursor()
+                
+                # Verificar por hash del contenido
                 cursor.execute("""
                     SELECT COUNT(*) FROM processed_content 
                     WHERE content_hash = ?
                 """, (content_hash,))
                 count = cursor.fetchone()[0]
+                
+                if count > 0:
+                    return True
+                
+                # Verificar por enlace (para evitar duplicados de enlaces)
+                cursor.execute("""
+                    SELECT COUNT(*) FROM processed_content 
+                    WHERE content_url = ?
+                """, (content_hash,))
+                count = cursor.fetchone()[0]
+                
                 return count > 0
                 
         except sqlite3.Error as e:

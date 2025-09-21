@@ -105,7 +105,7 @@ class EnhancedContentProcessor:
     
     def _create_enhanced_tweet(self, title: str, summary: str, link: str, source: str) -> str:
         """
-        Crea un tweet con más contenido y engagement
+        Crea un tweet con más contenido y engagement para generar más clicks
         
         Args:
             title: Título del artículo
@@ -114,26 +114,32 @@ class EnhancedContentProcessor:
             source: Fuente del artículo
             
         Returns:
-            Tweet mejorado
+            Tweet mejorado con más contenido
         """
         # Emojis según el tipo de contenido
         emoji = self._get_content_emoji(title, summary)
         
-        # Crear tweet base
+        # Crear tweet base con título polémico
         tweet = f"{emoji} {title}\n\n"
         
-        # Agregar resumen expandido si hay espacio
-        if summary and len(tweet) + len(summary) + 100 < self.max_length:
+        # Agregar resumen expandido con más detalles
+        if summary:
             expanded_summary = self._expand_summary(summary)
             tweet += f"{expanded_summary}\n\n"
         
-        # Agregar call-to-action
-        cta = self._get_call_to_action()
+        # Agregar información adicional para generar interés
+        additional_info = self._get_additional_info(title, summary)
+        if additional_info and len(tweet) + len(additional_info) + 100 < self.max_length:
+            tweet += f"{additional_info}\n\n"
+        
+        # Agregar call-to-action más atractivo
+        cta = self._get_enhanced_call_to_action()
         if len(tweet) + len(cta) + 50 < self.max_length:
             tweet += f"{cta}\n\n"
         
-        # Agregar enlace
-        tweet += f"🔗 {link}\n\n"
+        # Agregar enlace con descripción
+        link_description = self._get_link_description()
+        tweet += f"🔗 {link_description}\n{link}\n\n"
         
         # Agregar hashtags optimizados
         hashtags = self._get_optimized_hashtags(title, summary)
@@ -202,13 +208,13 @@ class EnhancedContentProcessor:
     
     def _expand_summary(self, summary: str) -> str:
         """
-        Expande el resumen para hacerlo más atractivo
+        Expande el resumen para hacerlo más atractivo y generar más clicks
         
         Args:
             summary: Resumen original
             
         Returns:
-            Resumen expandido
+            Resumen expandido con más detalles
         """
         if not summary:
             return ""
@@ -216,15 +222,49 @@ class EnhancedContentProcessor:
         # Limpiar y expandir el resumen
         expanded = summary.strip()
         
-        # Agregar conectores para hacerlo más fluido
+        # Agregar conectores y detalles adicionales
         connectors = {
-            'en': ['This technology', 'The innovation', 'This breakthrough', 'The development'],
-            'es': ['Esta tecnología', 'La innovación', 'Este avance', 'El desarrollo']
+            'en': [
+                'This revolutionary technology', 'The groundbreaking innovation', 
+                'This game-changing breakthrough', 'The unprecedented development',
+                'This cutting-edge advancement', 'The industry-disrupting technology'
+            ],
+            'es': [
+                'Esta tecnología revolucionaria', 'La innovación revolucionaria', 
+                'Este avance que cambia el juego', 'El desarrollo sin precedentes',
+                'Esta tecnología de vanguardia', 'La tecnología que está revolucionando'
+            ]
         }
         
+        # Agregar detalles adicionales para generar más interés
+        additional_details = {
+            'en': [
+                'Experts predict this will transform the industry completely.',
+                'This could be the biggest breakthrough of the year.',
+                'Industry leaders are calling this a game-changer.',
+                'This technology is already being adopted by major companies.',
+                'The implications of this development are enormous.',
+                'This could revolutionize how we work and live.'
+            ],
+            'es': [
+                'Los expertos predicen que esto transformará la industria completamente.',
+                'Este podría ser el avance más grande del año.',
+                'Los líderes de la industria lo llaman un cambio de juego.',
+                'Esta tecnología ya está siendo adoptada por grandes empresas.',
+                'Las implicaciones de este desarrollo son enormes.',
+                'Esto podría revolucionar cómo trabajamos y vivimos.'
+            ]
+        }
+        
+        # Construir resumen expandido
         if len(expanded) < self.min_content_length:
             connector = random.choice(connectors.get(self.language, connectors['es']))
             expanded = f"{connector} {expanded.lower()}"
+        
+        # Agregar detalles adicionales si hay espacio
+        if len(expanded) < 200:
+            detail = random.choice(additional_details.get(self.language, additional_details['es']))
+            expanded += f" {detail}"
         
         return expanded
     
@@ -253,6 +293,104 @@ class EnhancedContentProcessor:
         }
         
         return random.choice(ctas.get(self.language, ctas['es']))
+    
+    def _get_enhanced_call_to_action(self) -> str:
+        """
+        Obtiene un call-to-action más atractivo para generar clicks
+        
+        Returns:
+            Call-to-action mejorado
+        """
+        ctas = {
+            'en': [
+                "🚀 This is HUGE! What's your take?",
+                "💡 Game-changer alert! Thoughts?",
+                "🔥 This will blow your mind! Agree?",
+                "⚡ Revolutionary stuff! Your opinion?",
+                "🎯 This changes everything! What do you think?",
+                "💥 Mind-blowing! Share your thoughts!",
+                "🌟 Incredible breakthrough! Your take?",
+                "🚨 This is massive! What's your view?"
+            ],
+            'es': [
+                "🚀 ¡Esto es ENORME! ¿Qué opinas?",
+                "💡 ¡Alerta de cambio de juego! ¿Pensamientos?",
+                "🔥 ¡Esto te va a volar la mente! ¿Estás de acuerdo?",
+                "⚡ ¡Cosas revolucionarias! ¿Tu opinión?",
+                "🎯 ¡Esto cambia todo! ¿Qué piensas?",
+                "💥 ¡Alucinante! ¡Comparte tus pensamientos!",
+                "🌟 ¡Avance increíble! ¿Tu punto de vista?",
+                "🚨 ¡Esto es masivo! ¿Cuál es tu visión?"
+            ]
+        }
+        
+        return random.choice(ctas.get(self.language, ctas['es']))
+    
+    def _get_additional_info(self, title: str, summary: str) -> str:
+        """
+        Obtiene información adicional para hacer el tweet más atractivo
+        
+        Args:
+            title: Título del artículo
+            summary: Resumen del artículo
+            
+        Returns:
+            Información adicional
+        """
+        content = f"{title} {summary}".lower()
+        
+        additional_info = {
+            'en': [
+                "The implications are enormous and could reshape entire industries.",
+                "This breakthrough has been years in the making and is finally here.",
+                "Industry experts are calling this the most significant development yet.",
+                "The technology behind this is truly revolutionary and game-changing.",
+                "This could be the breakthrough we've all been waiting for.",
+                "The potential applications are endless and incredibly exciting.",
+                "This development marks a new era in technology and innovation."
+            ],
+            'es': [
+                "Las implicaciones son enormes y podrían reestructurar industrias enteras.",
+                "Este avance lleva años en desarrollo y finalmente está aquí.",
+                "Los expertos de la industria lo llaman el desarrollo más significativo hasta ahora.",
+                "La tecnología detrás de esto es verdaderamente revolucionaria y cambia el juego.",
+                "Este podría ser el avance que todos hemos estado esperando.",
+                "Las aplicaciones potenciales son infinitas e increíblemente emocionantes.",
+                "Este desarrollo marca una nueva era en tecnología e innovación."
+            ]
+        }
+        
+        return random.choice(additional_info.get(self.language, additional_info['es']))
+    
+    def _get_link_description(self) -> str:
+        """
+        Obtiene una descripción atractiva para el enlace
+        
+        Returns:
+            Descripción del enlace
+        """
+        descriptions = {
+            'en': [
+                "Read the full story here:",
+                "Get all the details:",
+                "Full article here:",
+                "Complete coverage:",
+                "Deep dive into this:",
+                "Full report:",
+                "Complete analysis:"
+            ],
+            'es': [
+                "Lee la historia completa aquí:",
+                "Obtén todos los detalles:",
+                "Artículo completo aquí:",
+                "Cobertura completa:",
+                "Análisis profundo aquí:",
+                "Reporte completo:",
+                "Análisis completo:"
+            ]
+        }
+        
+        return random.choice(descriptions.get(self.language, descriptions['es']))
     
     def _get_optimized_hashtags(self, title: str, summary: str) -> str:
         """

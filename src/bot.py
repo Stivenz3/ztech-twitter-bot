@@ -96,8 +96,17 @@ class ZTechBot:
                 logger.info("ℹ️ Todo el contenido ya fue procesado")
                 return False
             
-            # Seleccionar artículo aleatorio
-            selected_article = unprocessed_content[0]  # Tomar el más reciente
+            # Verificar que no sea contenido duplicado
+            selected_article = None
+            for article in unprocessed_content:
+                article_link = article.get('link', '').strip()
+                if article_link and not self.db.is_content_processed(article_link):
+                    selected_article = article
+                    break
+            
+            if not selected_article:
+                logger.warning("⚠️ Todos los artículos ya han sido procesados")
+                return False
             
             # Procesar artículo a tweet con procesador mejorado
             tweet_content = self.enhanced_processor.process_article_to_tweet(selected_article)
