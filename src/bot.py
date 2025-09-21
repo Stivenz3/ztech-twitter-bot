@@ -409,10 +409,14 @@ class ZTechBot:
             
             if Config.USE_AI_CONTENT and self.ai_generator.is_available():
                 logger.info(f"🤖 Generando contenido con IA: {post_type}")
+                logger.info(f"🔧 USE_AI_CONTENT: {Config.USE_AI_CONTENT}")
+                logger.info(f"🔧 AI disponible: {self.ai_generator.is_available()}")
                 tweet_content = self.ai_generator.generate_content(post_type)
                 if tweet_content:
                     source = "AIContentGenerator"
                     logger.info("✅ Contenido generado con IA")
+                else:
+                    logger.warning("⚠️ IA no pudo generar contenido")
             
             # Si IA no está disponible o falló, usar generador tradicional
             if not tweet_content:
@@ -421,6 +425,11 @@ class ZTechBot:
             
             if not tweet_content:
                 logger.warning(f"⚠️ No se pudo generar contenido para {post_type}")
+                return False
+            
+            # Verificar que el contenido no esté vacío
+            if not tweet_content or len(tweet_content.strip()) < 10:
+                logger.error("❌ Contenido generado muy corto o vacío")
                 return False
             
             # Publicar tweet
