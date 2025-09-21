@@ -18,6 +18,10 @@ class Config:
     TWITTER_ACCESS_TOKEN = os.getenv('TWITTER_ACCESS_TOKEN')
     TWITTER_ACCESS_TOKEN_SECRET = os.getenv('TWITTER_ACCESS_TOKEN_SECRET')
     
+    # OAuth 2.0 Credentials
+    TWITTER_CLIENT_ID = os.getenv('TWITTER_CLIENT_ID')
+    TWITTER_CLIENT_SECRET = os.getenv('TWITTER_CLIENT_SECRET')
+    
     # Configuración de la aplicación
     TWITTER_USERNAME = os.getenv('TWITTER_USERNAME', 'ztech')
     POSTING_SCHEDULE = os.getenv('POSTING_SCHEDULE', '09:00,18:00').split(',')

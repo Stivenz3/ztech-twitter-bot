@@ -451,7 +451,16 @@ class ContentAggregator:
                 continue
         
         # Ordenar por fecha de publicación (más recientes primero)
-        all_content.sort(key=lambda x: x.get('published', datetime.min), reverse=True)
+        def get_sort_date(item):
+            pub_date = item.get('published')
+            if pub_date is None:
+                return datetime.min.replace(tzinfo=None)
+            # Convertir a datetime naive si es necesario
+            if pub_date.tzinfo is not None:
+                return pub_date.replace(tzinfo=None)
+            return pub_date
+        
+        all_content.sort(key=get_sort_date, reverse=True)
         
         logger.info(f"📊 Total de contenido obtenido: {len(all_content)} artículos")
         return all_content
@@ -469,10 +478,15 @@ class ContentAggregator:
         cutoff_time = datetime.now() - timedelta(hours=hours)
         all_content = self.fetch_all_content()
         
-        fresh_content = [
-            article for article in all_content
-            if article.get('published') and article['published'] >= cutoff_time
-        ]
+        fresh_content = []
+        for article in all_content:
+            pub_date = article.get('published')
+            if pub_date:
+                # Convertir a datetime naive si es necesario
+                if pub_date.tzinfo is not None:
+                    pub_date = pub_date.replace(tzinfo=None)
+                if pub_date >= cutoff_time:
+                    fresh_content.append(article)
         
         logger.info(f"🆕 Contenido fresco ({hours}h): {len(fresh_content)} artículos")
         return fresh_content
