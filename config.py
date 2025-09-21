@@ -44,32 +44,114 @@ class Config:
     LOG_LEVEL = os.getenv('LOG_LEVEL', 'INFO')
     LOG_FILE = os.getenv('LOG_FILE', 'logs/ztech_bot.log')
     
-    # URLs de fuentes RSS de tecnología
+    # URLs de fuentes RSS de tecnología (expandidas)
     RSS_FEEDS = [
-        'https://feeds.feedburner.com/oreilly/radar',
+        # Fuentes principales en inglés
         'https://techcrunch.com/feed/',
         'https://www.wired.com/feed/rss',
         'https://feeds.arstechnica.com/arstechnica/index/',
         'https://www.theverge.com/rss/index.xml',
-        'https://feeds.feedburner.com/venturebeat/SZYF',
         'https://www.engadget.com/rss.xml',
-        'https://feeds.feedburner.com/oreilly/radar',
         'https://www.zdnet.com/topic/artificial-intelligence/rss.xml',
-        'https://feeds.feedburner.com/venturebeat/SZYF'
+        'https://feeds.feedburner.com/venturebeat/SZYF',
+        'https://www.digitaltrends.com/feed/',
+        'https://www.cnet.com/rss/news/',
+        'https://feeds.feedburner.com/oreilly/radar',
+        
+        # Fuentes de programación y desarrollo
+        'https://stackoverflow.blog/feed/',
+        'https://dev.to/feed',
+        'https://hackernoon.com/feed',
+        'https://www.freecodecamp.org/news/rss/',
+        'https://blog.codinghorror.com/rss/',
+        
+        # Fuentes de IA y Machine Learning
+        'https://openai.com/blog/rss.xml',
+        'https://blog.google/technology/ai/rss/',
+        'https://www.artificialintelligence-news.com/feed/',
+        'https://machinelearningmastery.com/feed/',
+        
+        # Fuentes en español
+        'https://www.xataka.com/tag/tecnologia/rss2.xml',
+        'https://www.genbeta.com/rss2.xml',
+        'https://www.omicrono.com/feed/',
+        'https://www.elandroidelibre.com/feed',
+        'https://www.applesfera.com/rss2.xml',
+        
+        # Fuentes de startups y emprendimiento
+        'https://techstartups.com/feed/',
+        'https://www.startupgrind.com/blog/feed/',
+        'https://www.entrepreneur.com/latest.rss',
+        
+        # Fuentes de ciberseguridad
+        'https://krebsonsecurity.com/feed/',
+        'https://www.darkreading.com/rss.xml',
+        'https://feeds.feedburner.com/eset/blog',
+        
+        # Fuentes de blockchain y crypto
+        'https://cointelegraph.com/rss',
+        'https://decrypt.co/feed',
+        'https://www.coindesk.com/arc/outboundfeeds/rss/',
+        
+        # Fuentes de hardware
+        'https://www.anandtech.com/rss/',
+        'https://www.tomshardware.com/feeds/all',
+        'https://www.pcworld.com/index.rss'
     ]
     
-    # Subreddits de tecnología
+    # Subreddits de tecnología (expandidos)
     REDDIT_SUBREDDITS = [
+        # Tecnología general
         'technology',
-        'programming',
-        'MachineLearning',
-        'artificial',
-        'Futurology',
-        'gadgets',
         'technews',
-        'cybersecurity',
+        'gadgets',
+        'Futurology',
+        'tech',
+        
+        # Programación y desarrollo
+        'programming',
         'webdev',
-        'datascience'
+        'javascript',
+        'Python',
+        'reactjs',
+        'node',
+        'MachineLearning',
+        'datascience',
+        'artificial',
+        
+        # Startups y emprendimiento
+        'startups',
+        'entrepreneur',
+        'SaaS',
+        'productivity',
+        
+        # Ciberseguridad
+        'cybersecurity',
+        'netsec',
+        'privacy',
+        'hacking',
+        
+        # Blockchain y crypto
+        'cryptocurrency',
+        'Bitcoin',
+        'ethereum',
+        'blockchain',
+        
+        # Hardware
+        'hardware',
+        'buildapc',
+        'Amd',
+        'nvidia',
+        
+        # Mobile y apps
+        'android',
+        'iOS',
+        'mobile',
+        
+        # Gaming tech
+        'gaming',
+        'pcgaming',
+        'Steam'
     ]
     
     @classmethod
