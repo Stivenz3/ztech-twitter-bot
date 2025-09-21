@@ -30,7 +30,35 @@ class Config:
     # Configuración de contenido
     MAX_TWEET_LENGTH = int(os.getenv('MAX_TWEET_LENGTH', '280'))
     HASHTAGS = os.getenv('HASHTAGS', '#tecnologia #innovacion #AI #programacion').split()
-    CONTENT_SOURCES = os.getenv('CONTENT_SOURCES', 'rss,reddit,newsapi').split(',')
+    CONTENT_SOURCES = os.getenv('CONTENT_SOURCES', 'rss,reddit,newsapi,youtube,tiktok,instagram,linkedin,medium,devto').split(',')
+    
+    # Tipos de publicaciones disponibles
+    POST_TYPES = [
+        'single',      # Una noticia con enlace
+        'curated',     # Múltiples noticias
+        'hacks',       # Tips y trucos tecnológicos
+        'protips',     # Consejos profesionales
+        'top_lists',   # Rankings y listas
+        'curiosities', # Datos curiosos
+        'controversial', # Contenido polémico
+        'history',     # Historia de la tecnología
+        'trends',      # Trends virales
+        'reviews'      # Reseñas y análisis
+    ]
+    
+    # Configuración de tipos de publicaciones
+    POST_TYPE_WEIGHTS = {
+        'single': 0.25,      # 25% - Noticias principales
+        'curated': 0.15,     # 15% - Múltiples noticias
+        'hacks': 0.15,       # 15% - Tips y trucos
+        'protips': 0.10,     # 10% - Consejos profesionales
+        'top_lists': 0.10,   # 10% - Rankings
+        'curiosities': 0.10, # 10% - Datos curiosos
+        'controversial': 0.05, # 5% - Contenido polémico
+        'history': 0.05,     # 5% - Historia
+        'trends': 0.03,      # 3% - Trends virales
+        'reviews': 0.02      # 2% - Reseñas
+    }
     
     # Configuración de engagement
     USE_CONTROVERSIAL_TITLES = os.getenv('USE_CONTROVERSIAL_TITLES', 'true').lower() == 'true'
@@ -71,6 +99,57 @@ class Config:
     NEWS_API_KEY = os.getenv('NEWS_API_KEY')
     REDDIT_CLIENT_ID = os.getenv('REDDIT_CLIENT_ID')
     REDDIT_CLIENT_SECRET = os.getenv('REDDIT_CLIENT_SECRET')
+    
+    # Fuentes de YouTube para tecnología
+    YOUTUBE_CHANNELS = [
+        'UCBJycsmduvYEL83R_U4JriQ',  # Marques Brownlee
+        'UCXuqSBlHAE6Xw-yeJA0Tunw',  # Linus Tech Tips
+        'UCeeFfhMcJa1kjtfZAGskOCA',  # TechWorld with Nana
+        'UCBJycsmduvYEL83R_U4JriQ',  # The Verge
+        'UCBJycsmduvYEL83R_U4JriQ',  # TechCrunch
+        'UCBJycsmduvYEL83R_U4JriQ',  # Wired
+        'UCBJycsmduvYEL83R_U4JriQ',  # Ars Technica
+        'UCBJycsmduvYEL83R_U4JriQ',  # Engadget
+        'UCBJycsmduvYEL83R_U4JriQ',  # CNET
+        'UCBJycsmduvYEL83R_U4JriQ'   # Digital Trends
+    ]
+    
+    # Fuentes de TikTok para trends virales
+    TIKTOK_HASHTAGS = [
+        '#tech', '#technology', '#programming', '#coding', '#ai', '#artificialintelligence',
+        '#machinelearning', '#cybersecurity', '#blockchain', '#crypto', '#startup',
+        '#entrepreneur', '#innovation', '#gadgets', '#smartphone', '#laptop', '#gaming',
+        '#techhack', '#techtip', '#techreview', '#technews', '#techtrends'
+    ]
+    
+    # Fuentes de Instagram para tech influencers
+    INSTAGRAM_HASHTAGS = [
+        '#tech', '#technology', '#programming', '#coding', '#ai', '#artificialintelligence',
+        '#machinelearning', '#cybersecurity', '#blockchain', '#crypto', '#startup',
+        '#entrepreneur', '#innovation', '#gadgets', '#smartphone', '#laptop', '#gaming',
+        '#techhack', '#techtip', '#techreview', '#technews', '#techtrends'
+    ]
+    
+    # Fuentes de LinkedIn para artículos profesionales
+    LINKEDIN_TOPICS = [
+        'artificial-intelligence', 'machine-learning', 'cybersecurity', 'blockchain',
+        'cloud-computing', 'data-science', 'programming', 'software-development',
+        'startups', 'entrepreneurship', 'innovation', 'technology', 'digital-transformation'
+    ]
+    
+    # Fuentes de Medium para artículos técnicos
+    MEDIUM_TAGS = [
+        'technology', 'programming', 'artificial-intelligence', 'machine-learning',
+        'cybersecurity', 'blockchain', 'startup', 'entrepreneurship', 'innovation',
+        'software-development', 'web-development', 'mobile-development', 'data-science'
+    ]
+    
+    # Fuentes de Dev.to para comunidad de desarrolladores
+    DEV_TO_TAGS = [
+        'javascript', 'python', 'java', 'cpp', 'golang', 'rust', 'react', 'node',
+        'docker', 'kubernetes', 'aws', 'azure', 'gcp', 'ai', 'machinelearning',
+        'cybersecurity', 'blockchain', 'startup', 'programming', 'webdev'
+    ]
     
     # Base de datos
     DATABASE_URL = os.getenv('DATABASE_URL', 'sqlite:///ztech_bot.db')

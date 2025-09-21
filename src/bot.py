@@ -16,6 +16,8 @@ from twitter_client import TwitterClient
 from content_sources import ContentAggregator
 from content_processor import ContentProcessor
 from enhanced_content_processor import EnhancedContentProcessor
+from content_generator import ContentGenerator
+from expanded_content_sources import ExpandedContentSources
 
 class ZTechBot:
     """Bot principal de Twitter ZTech"""
@@ -27,6 +29,8 @@ class ZTechBot:
         self.content_aggregator = ContentAggregator()
         self.content_processor = ContentProcessor()
         self.enhanced_processor = EnhancedContentProcessor()
+        self.content_generator = ContentGenerator()
+        self.expanded_sources = ExpandedContentSources()
         
         # Configurar logging
         self._setup_logging()
@@ -78,7 +82,15 @@ class ZTechBot:
         try:
             logger.info("🚀 Iniciando publicación de tweet...")
             
-            # Obtener contenido fresco
+            # Seleccionar tipo de publicación
+            post_type = self._select_post_type()
+            logger.info(f"📝 Tipo de publicación seleccionado: {post_type}")
+            
+            # Generar contenido según el tipo
+            if post_type in ['hacks', 'protips', 'top_lists', 'curiosities', 'controversial', 'history']:
+                return self._post_generated_content(post_type)
+            
+            # Obtener contenido fresco para noticias
             fresh_content = self.content_aggregator.get_fresh_content(hours=24)
             
             if not fresh_content:
@@ -363,3 +375,60 @@ class ZTechBot:
             
         except Exception as e:
             logger.error(f"❌ Error en limpieza: {e}")
+    
+    def _select_post_type(self) -> str:
+        """
+        Selecciona el tipo de publicación basado en los pesos configurados
+        
+        Returns:
+            Tipo de publicación seleccionado
+        """
+        import random
+        
+        types = list(Config.POST_TYPE_WEIGHTS.keys())
+        weights = list(Config.POST_TYPE_WEIGHTS.values())
+        
+        return random.choices(types, weights=weights)[0]
+    
+    def _post_generated_content(self, post_type: str) -> bool:
+        """
+        Publica contenido generado (hacks, protips, etc.)
+        
+        Args:
+            post_type: Tipo de contenido a generar
+            
+        Returns:
+            True si se publicó exitosamente, False en caso contrario
+        """
+        try:
+            # Generar contenido
+            tweet_content = self.content_generator.generate_content(post_type)
+            
+            if not tweet_content:
+                logger.warning(f"⚠️ No se pudo generar contenido para {post_type}")
+                return False
+            
+            # Publicar tweet
+            success = self.twitter.post_tweet(tweet_content)
+            
+            if success:
+                # Marcar como procesado
+                content_hash = f"generated_{post_type}_{hash(tweet_content)}"
+                self.db.mark_content_processed(
+                    content_hash=content_hash,
+                    content_url="",
+                    content_title=f"Generated {post_type}",
+                    content_source="ContentGenerator",
+                    tweet_content=tweet_content
+                )
+                
+                logger.success(f"✅ Tweet generado publicado exitosamente: {post_type}")
+                self.stats['tweets_posted'] += 1
+                return True
+            else:
+                logger.error("❌ Error al publicar tweet generado")
+                return False
+                
+        except Exception as e:
+            logger.error(f"❌ Error en _post_generated_content: {e}")
+            return False
