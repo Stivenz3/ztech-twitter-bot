@@ -107,7 +107,7 @@ class Config:
     
     # Configuración de IA
     USE_AI_CONTENT = os.getenv('USE_AI_CONTENT', 'true').lower() == 'true'
-    AI_MODEL_PREFERENCE = os.getenv('AI_MODEL_PREFERENCE', 'qwen')  # 'qwen', 'openai' o 'anthropic'
+    AI_MODEL_PREFERENCE = os.getenv('AI_MODEL_PREFERENCE', 'openrouter')  # 'openrouter', 'openai' o 'anthropic'
     
     # Fuentes de YouTube para tecnología
     YOUTUBE_CHANNELS = [

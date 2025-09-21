@@ -84,6 +84,8 @@ class AIContentGenerator:
 - Have a hook that makes people want to try it
 - Include relevant hashtags
 - Be written in an exciting, shareable tone
+- Include a brief explanation of WHY this hack is useful
+- Make people want to save and share it
 
 Examples of good hooks:
 - "This will blow your mind!"
@@ -99,6 +101,8 @@ Generate 3 different versions.""",
 - Tener un gancho que haga que la gente quiera probarlo
 - Incluir hashtags relevantes
 - Estar escrito en un tono emocionante y compartible
+- Incluir una breve explicación de POR QUÉ este hack es útil
+- Hacer que la gente quiera guardarlo y compartirlo
 
 Ejemplos de buenos ganchos:
 - "¡Esto te va a volar la mente!"
@@ -117,6 +121,8 @@ Genera 3 versiones diferentes."""
 - Use professional but engaging tone
 - Include relevant hashtags
 - Appeal to developers, engineers, or tech workers
+- Include a brief explanation of WHY this tip matters
+- Provide context about the impact or benefit
 
 Focus on:
 - Career advice
@@ -133,6 +139,8 @@ Generate 3 different versions.""",
 - Usar un tono profesional pero atractivo
 - Incluir hashtags relevantes
 - Atraer a desarrolladores, ingenieros o trabajadores tech
+- Incluir una breve explicación de POR QUÉ este consejo importa
+- Proporcionar contexto sobre el impacto o beneficio
 
 Enfócate en:
 - Consejos de carrera
@@ -295,7 +303,7 @@ Genera 3 versiones diferentes."""
             Contenido generado o None si no se puede generar
         """
         try:
-            if not self.openai_client and not self.anthropic_client:
+            if not self.qwen_available and not self.openai_client and not self.anthropic_client:
                 logger.warning("⚠️ No hay APIs de IA disponibles")
                 return None
             
@@ -309,9 +317,9 @@ Genera 3 versiones diferentes."""
             if article_text:
                 prompt_template += f"\n\nContexto del artículo:\n{article_text[:1000]}..."
             
-            # Generar contenido usando IA (prioridad: Qwen > OpenAI > Anthropic)
+            # Generar contenido usando IA (prioridad: OpenRouter > OpenAI > Anthropic)
             if self.qwen_available:
-                return self._generate_with_qwen(prompt_template, content_type)
+                return self._generate_with_openrouter(prompt_template, content_type)
             elif self.openai_client:
                 return self._generate_with_openai(prompt_template, content_type)
             elif self.anthropic_client:
@@ -321,21 +329,24 @@ Genera 3 versiones diferentes."""
             logger.error(f"❌ Error generando contenido con IA: {e}")
             return None
     
-    def _generate_with_qwen(self, prompt: str, content_type: str) -> Optional[str]:
-        """Genera contenido usando Qwen API"""
+    def _generate_with_openrouter(self, prompt: str, content_type: str) -> Optional[str]:
+        """Genera contenido usando OpenRouter API con GPT-OSS-120B"""
         try:
             import requests
             
-            # URL de la API de Qwen
-            url = "https://api.qwen.com/v1/chat/completions"
+            # URL de la API de OpenRouter
+            url = "https://openrouter.ai/api/v1/chat/completions"
             
             headers = {
                 "Authorization": f"Bearer {self.qwen_api_key}",
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                "HTTP-Referer": "https://github.com/Stivenz3/ztech-twitter-bot",
+                "X-Title": "ZTech Twitter Bot",
+                "X-User": "ZTech Bot"
             }
             
             data = {
-                "model": "qwen-coder-480b-a35b",
+                "model": "openai/gpt-4o",
                 "messages": [
                     {
                         "role": "system",
@@ -365,14 +376,14 @@ Genera 3 versiones diferentes."""
                 # Limpiar y formatear
                 content = self._clean_content(content)
                 
-                logger.info(f"✅ Contenido generado con Qwen: {content_type}")
+                logger.info(f"✅ Contenido generado con OpenRouter GPT: {content_type}")
                 return content
             else:
-                logger.error(f"❌ Error con Qwen API: {response.status_code} - {response.text}")
+                logger.error(f"❌ Error con OpenRouter API: {response.status_code} - {response.text}")
                 return None
                 
         except Exception as e:
-            logger.error(f"❌ Error con Qwen: {e}")
+            logger.error(f"❌ Error con OpenRouter: {e}")
             return None
     
     def _generate_with_openai(self, prompt: str, content_type: str) -> Optional[str]:
@@ -450,11 +461,23 @@ Genera 3 versiones diferentes."""
             if line.startswith('"') and line.endswith('"'):
                 line = line[1:-1]
             
+            # Remover "Versión 1:", "Versión 2:", etc.
+            if line.strip().startswith(('Versión 1:', 'Versión 2:', 'Versión 3:')):
+                line = line.split(':', 1)[1].strip()
+            
+            # Remover "**Versión 1:**", "**Versión 2:**", etc.
+            if '**Versión' in line:
+                line = line.split('**', 2)[2].strip()
+            
             cleaned_lines.append(line)
         
         # Unir líneas y limpiar
         content = ' '.join(cleaned_lines)
         content = content.replace('  ', ' ').strip()
+        
+        # Remover texto adicional después de hashtags
+        if 'Versión' in content:
+            content = content.split('Versión')[0].strip()
         
         # Asegurar que no exceda el límite de caracteres
         if len(content) > self.max_length:

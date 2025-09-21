@@ -21,59 +21,59 @@ class ContentGenerator:
     def _init_content_database(self):
         """Inicializa la base de datos de contenido"""
         
-        # Hacks tecnológicos
+        # Hacks tecnológicos mejorados
         self.tech_hacks = {
             'en': [
-                "💡 HACK: Use Ctrl+Shift+T to reopen closed browser tabs instantly!",
-                "🚀 HACK: Windows key + L locks your computer in seconds!",
-                "⚡ HACK: Ctrl+Shift+N opens incognito mode in any browser!",
-                "🔒 HACK: Use 2FA on ALL your accounts - it's not optional anymore!",
-                "📱 HACK: Double-tap space bar to add period and space on mobile!",
-                "💻 HACK: Alt+Tab switches between open applications instantly!",
-                "🌐 HACK: Use Ctrl+F to find any text on any webpage!",
-                "📧 HACK: Use BCC when sending emails to multiple people!",
-                "🔍 HACK: Use Ctrl+Shift+Delete to clear browser data quickly!",
-                "⌨️ HACK: Use Ctrl+C and Ctrl+V to copy and paste anything!"
+                "💡 HACK: Use Ctrl+Shift+T to reopen closed browser tabs instantly! This saves you from losing important work and makes browsing 10x faster. Try it now!",
+                "🚀 HACK: Windows key + L locks your computer in seconds! Essential for privacy in shared spaces. Your data stays secure while you're away.",
+                "⚡ HACK: Ctrl+Shift+N opens incognito mode in any browser! Perfect for testing websites, checking prices, or browsing privately without leaving traces.",
+                "🔒 HACK: Use 2FA on ALL your accounts - it's not optional anymore! This simple step blocks 99.9% of hacking attempts. Your future self will thank you.",
+                "📱 HACK: Double-tap space bar to add period and space on mobile! This tiny trick makes typing on phones 3x faster. Game changer for mobile productivity.",
+                "💻 HACK: Alt+Tab switches between open applications instantly! Master this and you'll never waste time clicking through windows again.",
+                "🌐 HACK: Use Ctrl+F to find any text on any webpage! This universal search works everywhere and saves you from endless scrolling.",
+                "📧 HACK: Use BCC when sending emails to multiple people! Protects everyone's privacy and prevents reply-all disasters.",
+                "🔍 HACK: Use Ctrl+Shift+Delete to clear browser data quickly! Keeps your browser fast and your privacy intact.",
+                "⌨️ HACK: Use Ctrl+C and Ctrl+V to copy and paste anything! The foundation of digital productivity - master these shortcuts first."
             ],
             'es': [
-                "💡 HACK: Usa Ctrl+Shift+T para reabrir pestañas cerradas al instante!",
-                "🚀 HACK: Tecla Windows + L bloquea tu computadora en segundos!",
-                "⚡ HACK: Ctrl+Shift+N abre modo incógnito en cualquier navegador!",
-                "🔒 HACK: Usa 2FA en TODAS tus cuentas - ya no es opcional!",
-                "📱 HACK: Doble toque en espacio agrega punto y espacio en móvil!",
-                "💻 HACK: Alt+Tab cambia entre aplicaciones abiertas al instante!",
-                "🌐 HACK: Usa Ctrl+F para encontrar cualquier texto en cualquier página!",
-                "📧 HACK: Usa CCO al enviar emails a múltiples personas!",
-                "🔍 HACK: Usa Ctrl+Shift+Supr para limpiar datos del navegador rápido!",
-                "⌨️ HACK: Usa Ctrl+C y Ctrl+V para copiar y pegar cualquier cosa!"
+                "💡 HACK: ¡Usa Ctrl+Shift+T para reabrir pestañas cerradas al instante! Esto te salva de perder trabajo importante y hace la navegación 10x más rápida. ¡Pruébalo ahora!",
+                "🚀 HACK: ¡Tecla Windows + L bloquea tu computadora en segundos! Esencial para privacidad en espacios compartidos. Tus datos se mantienen seguros mientras estás ausente.",
+                "⚡ HACK: ¡Ctrl+Shift+N abre modo incógnito en cualquier navegador! Perfecto para probar sitios web, verificar precios, o navegar privadamente sin dejar rastros.",
+                "🔒 HACK: ¡Usa 2FA en TODAS tus cuentas - ya no es opcional! Este simple paso bloquea el 99.9% de intentos de hackeo. Tu yo futuro te lo agradecerá.",
+                "📱 HACK: ¡Doble toque en espacio agrega punto y espacio en móvil! Este pequeño truco hace que escribir en teléfonos sea 3x más rápido. Cambia el juego para productividad móvil.",
+                "💻 HACK: ¡Alt+Tab cambia entre aplicaciones abiertas al instante! Domina esto y nunca más perderás tiempo haciendo clic entre ventanas.",
+                "🌐 HACK: ¡Usa Ctrl+F para encontrar cualquier texto en cualquier página! Esta búsqueda universal funciona en todas partes y te salva del scroll infinito.",
+                "📧 HACK: ¡Usa CCO al enviar emails a múltiples personas! Protege la privacidad de todos y previene desastres de responder a todos.",
+                "🔍 HACK: ¡Usa Ctrl+Shift+Supr para limpiar datos del navegador rápido! Mantiene tu navegador rápido y tu privacidad intacta.",
+                "⌨️ HACK: ¡Usa Ctrl+C y Ctrl+V para copiar y pegar cualquier cosa! La base de la productividad digital - domina estos atajos primero."
             ]
         }
         
-        # Protips profesionales
+        # Protips profesionales mejorados
         self.professional_tips = {
             'en': [
-                "🎯 PROTIP: Always backup your code before making major changes!",
-                "💼 PROTIP: Document your code - your future self will thank you!",
-                "🚀 PROTIP: Use version control (Git) for every project, no matter how small!",
-                "🔒 PROTIP: Never commit passwords or API keys to version control!",
-                "📊 PROTIP: Test your code before deploying to production!",
-                "🌐 PROTIP: Use HTTPS everywhere - security is not optional!",
-                "📱 PROTIP: Design mobile-first - most users are on mobile!",
-                "⚡ PROTIP: Optimize images before uploading - size matters!",
-                "🔍 PROTIP: Use meaningful variable names - code should be self-documenting!",
-                "🎨 PROTIP: Follow design patterns - they exist for a reason!"
+                "🎯 PROTIP: Always backup your code before making major changes! Git branches are your safety net - use them religiously. One bad commit can cost hours of debugging.",
+                "💼 PROTIP: Document your code - your future self will thank you! Clear comments and README files are the difference between maintainable and legacy code.",
+                "🚀 PROTIP: Use version control (Git) for every project, no matter how small! Even personal projects benefit from proper versioning and commit history.",
+                "🔒 PROTIP: Never commit passwords or API keys to version control! Use environment variables and .env files. Your security depends on this simple rule.",
+                "📊 PROTIP: Test your code before deploying to production! Automated testing saves you from embarrassing bugs and customer complaints.",
+                "🌐 PROTIP: Use HTTPS everywhere - security is not optional! SSL certificates are free and essential for protecting user data and building trust.",
+                "📱 PROTIP: Design mobile-first - most users are on mobile! Responsive design isn't optional anymore, it's a requirement for modern web development.",
+                "⚡ PROTIP: Optimize images before uploading - size matters! Compressed images load faster, save bandwidth, and improve user experience significantly.",
+                "🔍 PROTIP: Use meaningful variable names - code should be self-documenting! `userEmail` is infinitely better than `ue` or `data1`. Your teammates will thank you.",
+                "🎨 PROTIP: Follow design patterns - they exist for a reason! MVC, Singleton, Observer - these patterns solve common problems and make your code more maintainable."
             ],
             'es': [
-                "🎯 PROTIP: Siempre respalda tu código antes de hacer cambios importantes!",
-                "💼 PROTIP: Documenta tu código - tu yo futuro te lo agradecerá!",
-                "🚀 PROTIP: Usa control de versiones (Git) para cada proyecto, sin importar qué tan pequeño!",
-                "🔒 PROTIP: Nunca subas contraseñas o API keys al control de versiones!",
-                "📊 PROTIP: Prueba tu código antes de desplegarlo a producción!",
-                "🌐 PROTIP: Usa HTTPS en todas partes - la seguridad no es opcional!",
-                "📱 PROTIP: Diseña mobile-first - la mayoría de usuarios están en móvil!",
-                "⚡ PROTIP: Optimiza imágenes antes de subirlas - el tamaño importa!",
-                "🔍 PROTIP: Usa nombres de variables significativos - el código debe ser auto-documentado!",
-                "🎨 PROTIP: Sigue patrones de diseño - existen por una razón!"
+                "🎯 PROTIP: ¡Siempre respalda tu código antes de hacer cambios importantes! Las ramas de Git son tu red de seguridad - úsalas religiosamente. Un commit malo puede costar horas de debugging.",
+                "💼 PROTIP: ¡Documenta tu código - tu yo futuro te lo agradecerá! Comentarios claros y archivos README son la diferencia entre código mantenible y código legacy.",
+                "🚀 PROTIP: ¡Usa control de versiones (Git) para cada proyecto, sin importar qué tan pequeño! Incluso los proyectos personales se benefician del versionado adecuado.",
+                "🔒 PROTIP: ¡Nunca subas contraseñas o API keys al control de versiones! Usa variables de entorno y archivos .env. Tu seguridad depende de esta simple regla.",
+                "📊 PROTIP: ¡Prueba tu código antes de desplegarlo a producción! Las pruebas automatizadas te salvan de bugs embarazosos y quejas de clientes.",
+                "🌐 PROTIP: ¡Usa HTTPS en todas partes - la seguridad no es opcional! Los certificados SSL son gratuitos y esenciales para proteger datos de usuarios.",
+                "📱 PROTIP: ¡Diseña mobile-first - la mayoría de usuarios están en móvil! El diseño responsivo ya no es opcional, es un requisito para desarrollo web moderno.",
+                "⚡ PROTIP: ¡Optimiza imágenes antes de subirlas - el tamaño importa! Las imágenes comprimidas cargan más rápido, ahorran ancho de banda y mejoran la experiencia del usuario.",
+                "🔍 PROTIP: ¡Usa nombres de variables significativos - el código debe ser auto-documentado! `userEmail` es infinitamente mejor que `ue` o `data1`. Tus compañeros te lo agradecerán.",
+                "🎨 PROTIP: ¡Sigue patrones de diseño - existen por una razón! MVC, Singleton, Observer - estos patrones resuelven problemas comunes y hacen tu código más mantenible."
             ]
         }
         
