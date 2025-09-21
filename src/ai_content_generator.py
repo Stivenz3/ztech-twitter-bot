@@ -186,38 +186,50 @@ Genera 3 versiones diferentes."""
             },
             
             'curiosities': {
-                'en': """Create a mind-blowing tech curiosity tweet that will make people go "WOW!". The tweet should:
-- Be 200-280 characters
-- Share an amazing, little-known tech fact
-- Be surprising or counterintuitive
+                'en': """Create a fascinating tech curiosity tweet with a detailed explanation. The tweet should have TWO parts:
+
+PART 1 - The Hook (200-280 characters):
+- Start with "CURIOSITY:" or "DID YOU KNOW:"
+- Share an amazing tech fact or discovery
+- Be surprising and educational
 - Use engaging emojis
 - Include relevant hashtags
-- Make people want to share the knowledge
 
-Focus on:
-- Historical tech facts
-- Surprising statistics
-- Little-known features
-- Amazing capabilities
-- Tech mysteries or secrets
+PART 2 - The Explanation (500+ characters):
+- Provide a detailed paragraph explaining the curiosity
+- Include historical context, technical details, and implications
+- Explain WHY this fact is important or interesting
+- Add additional related information
+- Make it educational and comprehensive
 
-Generate 3 different versions.""",
-                'es': """Crea un tweet de curiosidad tecnológica alucinante que haga que la gente diga "¡WOW!". El tweet debe:
-- Tener 200-280 caracteres
-- Compartir un hecho tecnológico increíble y poco conocido
-- Ser sorprendente o contraintuitivo
-- Usar emojis atractivos
-- Incluir hashtags relevantes
-- Hacer que la gente quiera compartir el conocimiento
+Example format:
+"CURIOSITY: The first password was created in 1961 at MIT! 🔐
 
-Enfócate en:
-- Hechos históricos tech
-- Estadísticas sorprendentes
-- Características poco conocidas
-- Capacidades increíbles
-- Misterios o secretos tech
+[Detailed 500+ character explanation about the history of passwords, how they evolved, their importance in cybersecurity, and their impact on modern technology]"
 
-Genera 3 versiones diferentes."""
+Create 1-2 versions of this detailed curiosity tweet.""",
+                'es': """Crea un tweet de curiosidad tecnológica fascinante con una explicación detallada. El tweet debe tener DOS partes:
+
+PARTE 1 - El Gancho (200-280 caracteres):
+- Comienza con "CURIOSIDAD:" o "¿SABÍAS QUE:"
+- Comparte un hecho o descubrimiento tecnológico asombroso
+- Sé sorprendente y educativo
+- Usa emojis atractivos
+- Incluye hashtags relevantes
+
+PARTE 2 - La Explicación (500+ caracteres):
+- Proporciona un párrafo detallado explicando la curiosidad
+- Incluye contexto histórico, detalles técnicos e implicaciones
+- Explica POR QUÉ este hecho es importante o interesante
+- Añade información adicional relacionada
+- Hazlo educativo y comprensivo
+
+Formato de ejemplo:
+"CURIOSIDAD: ¡La primera contraseña fue creada en 1961 en MIT! 🔐
+
+[Explicación detallada de 500+ caracteres sobre la historia de las contraseñas, cómo evolucionaron, su importancia en ciberseguridad y su impacto en la tecnología moderna]"
+
+Crea 1-2 versiones de este tweet de curiosidad detallado."""
             },
             
             'controversial': {
@@ -357,7 +369,7 @@ Genera 3 versiones diferentes."""
                         "content": prompt
                     }
                 ],
-                "max_tokens": 500,
+                "max_tokens": 800,
                 "temperature": 0.8,
                 "top_p": 0.9
             }

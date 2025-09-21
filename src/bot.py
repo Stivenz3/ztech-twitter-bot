@@ -17,7 +17,7 @@ from content_sources import ContentAggregator
 from content_processor import ContentProcessor
 from enhanced_content_processor import EnhancedContentProcessor
 from content_generator import ContentGenerator
-from ai_content_generator import AIContentGenerator
+from ai_content_generator_improved import AIContentGeneratorImproved
 from expanded_content_sources import ExpandedContentSources
 
 class ZTechBot:
@@ -31,7 +31,7 @@ class ZTechBot:
         self.content_processor = ContentProcessor()
         self.enhanced_processor = EnhancedContentProcessor()
         self.content_generator = ContentGenerator()
-        self.ai_generator = AIContentGenerator()
+        self.ai_generator = AIContentGeneratorImproved()
         self.expanded_sources = ExpandedContentSources()
         
         # Configurar logging
