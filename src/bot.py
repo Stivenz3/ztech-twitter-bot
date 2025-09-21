@@ -436,13 +436,15 @@ class ZTechBot:
             success = self.twitter.post_tweet(tweet_content)
             
             if success:
-                # Marcar como procesado
-                content_hash = f"generated_{post_type}_{hash(tweet_content)}"
+                # Marcar como procesado con hash único
+                import datetime
+                timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
+                content_hash = f"generated_{post_type}_{timestamp}_{hash(tweet_content)}"
                 self.db.save_processed_content(
                     content_hash=content_hash,
                     source=source,
                     source_url="",
-                    title=f"Generated {post_type}",
+                    title=f"Generated {post_type} - {timestamp}",
                     summary=tweet_content[:200] + "..." if len(tweet_content) > 200 else tweet_content
                 )
                 
