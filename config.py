@@ -24,7 +24,7 @@ class Config:
     
     # Configuración de la aplicación
     TWITTER_USERNAME = os.getenv('TWITTER_USERNAME', 'ztech')
-    POSTING_SCHEDULE = os.getenv('POSTING_SCHEDULE', '09:00,18:00').split(',')
+    POSTING_SCHEDULE = os.getenv('POSTING_SCHEDULE', '12:00,18:00').split(',')
     TIMEZONE = os.getenv('TIMEZONE', 'America/Mexico_City')
     
     # Configuración de contenido
