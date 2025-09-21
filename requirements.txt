@@ -1,0 +1,30 @@
+# Twitter API
+tweepy==4.14.0
+
+# Web scraping y RSS
+requests==2.31.0
+beautifulsoup4==4.12.2
+feedparser==6.0.10
+lxml==4.9.3
+
+# Base de datos
+# sqlite3 - Incluido en Python estándar
+
+# Programación y tareas
+schedule==1.2.0
+python-dotenv==1.0.0
+
+# Utilidades
+pytz==2023.3
+python-dateutil==2.8.2
+
+# Logging y monitoreo
+loguru==0.7.2
+
+# Testing
+pytest==7.4.3
+pytest-cov==4.1.0
+
+# Formateo de código
+black==23.9.1
+flake8==6.1.0

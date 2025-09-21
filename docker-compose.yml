@@ -1,0 +1,45 @@
+version: '3.8'
+
+services:
+  ztech-bot:
+    build: .
+    container_name: ztech-twitter-bot
+    restart: unless-stopped
+    environment:
+      # Twitter API
+      - TWITTER_API_KEY=${TWITTER_API_KEY}
+      - TWITTER_API_SECRET=${TWITTER_API_SECRET}
+      - TWITTER_BEARER_TOKEN=${TWITTER_BEARER_TOKEN}
+      - TWITTER_ACCESS_TOKEN=${TWITTER_ACCESS_TOKEN}
+      - TWITTER_ACCESS_TOKEN_SECRET=${TWITTER_ACCESS_TOKEN_SECRET}
+      
+      # Configuración del bot
+      - TWITTER_USERNAME=ztech
+      - POSTING_SCHEDULE=09:00,18:00
+      - TIMEZONE=America/Mexico_City
+      - HASHTAGS=#tecnologia #innovacion #AI #programacion
+      - MAX_TWEET_LENGTH=280
+      
+      # APIs opcionales
+      - NEWS_API_KEY=${NEWS_API_KEY}
+      - REDDIT_CLIENT_ID=${REDDIT_CLIENT_ID}
+      - REDDIT_CLIENT_SECRET=${REDDIT_CLIENT_SECRET}
+      
+      # Base de datos y logging
+      - DATABASE_URL=sqlite:///data/ztech_bot.db
+      - LOG_LEVEL=INFO
+      - LOG_FILE=logs/ztech_bot.log
+    
+    volumes:
+      - ./data:/app/data
+      - ./logs:/app/logs
+    
+    command: ["python", "main.py", "--mode", "continuous"]
+    
+    # Health check
+    healthcheck:
+      test: ["CMD", "python", "main.py", "--mode", "test"]
+      interval: 30m
+      timeout: 10s
+      retries: 3
+      start_period: 40s
