@@ -215,6 +215,9 @@ class ContentGenerator:
         hacks = self.tech_hacks.get(self.language, self.tech_hacks['es'])
         hack = random.choice(hacks)
         
+        # Agregar variación para evitar duplicados
+        hack = self._add_variation(hack)
+        
         # Agregar hashtags
         hashtags = self._get_hashtags_for_type('hacks')
         return f"{hack}\n\n{hashtags}"
@@ -223,6 +226,9 @@ class ContentGenerator:
         """Genera un protip profesional"""
         tips = self.professional_tips.get(self.language, self.professional_tips['es'])
         tip = random.choice(tips)
+        
+        # Agregar variación para evitar duplicados
+        tip = self._add_variation(tip)
         
         # Agregar hashtags
         hashtags = self._get_hashtags_for_type('protips')
@@ -233,6 +239,9 @@ class ContentGenerator:
         lists = self.top_lists.get(self.language, self.top_lists['es'])
         top_list = random.choice(lists)
         
+        # Agregar variación para evitar duplicados
+        top_list = self._add_variation(top_list)
+        
         # Agregar hashtags
         hashtags = self._get_hashtags_for_type('top_lists')
         return f"{top_list}\n\n{hashtags}"
@@ -241,6 +250,9 @@ class ContentGenerator:
         """Genera una curiosidad tecnológica"""
         curiosities = self.tech_curiosities.get(self.language, self.tech_curiosities['es'])
         curiosity = random.choice(curiosities)
+        
+        # Agregar variación para evitar duplicados
+        curiosity = self._add_variation(curiosity)
         
         # Agregar hashtags
         hashtags = self._get_hashtags_for_type('curiosities')
@@ -251,6 +263,9 @@ class ContentGenerator:
         controversial = self.controversial_content.get(self.language, self.controversial_content['es'])
         content = random.choice(controversial)
         
+        # Agregar variación para evitar duplicados
+        content = self._add_variation(content)
+        
         # Agregar hashtags
         hashtags = self._get_hashtags_for_type('controversial')
         return f"{content}\n\n{hashtags}"
@@ -259,6 +274,9 @@ class ContentGenerator:
         """Genera contenido histórico"""
         history = self.tech_history.get(self.language, self.tech_history['es'])
         content = random.choice(history)
+        
+        # Agregar variación para evitar duplicados
+        content = self._add_variation(content)
         
         # Agregar hashtags
         hashtags = self._get_hashtags_for_type('history')
@@ -317,3 +335,37 @@ class ContentGenerator:
         filtered_weights = [Config.POST_TYPE_WEIGHTS[t] for t in filtered_types]
         
         return random.choices(filtered_types, weights=filtered_weights)[0]
+    
+    def _add_variation(self, content: str) -> str:
+        """Agrega variación al contenido para evitar duplicados"""
+        import datetime
+        
+        # Agregar timestamp único
+        timestamp = datetime.datetime.now().strftime("%H:%M")
+        
+        # Variaciones de emojis
+        emoji_variations = {
+            '🚀': ['🚀', '⚡', '💫', '🌟', '✨'],
+            '💻': ['💻', '🖥️', '📱', '⌨️', '🖱️'],
+            '🤖': ['🤖', '🧠', '💡', '🔮', '🎯'],
+            '📚': ['📚', '📖', '📝', '📄', '📋'],
+            '🔥': ['🔥', '💥', '⚡', '🌟', '✨']
+        }
+        
+        # Reemplazar emojis con variaciones
+        for original, variations in emoji_variations.items():
+            if original in content:
+                content = content.replace(original, random.choice(variations), 1)
+        
+        # Agregar variación al final si hay espacio
+        if len(content) < 250:
+            variations = [
+                f" #{timestamp}",
+                " 🎯",
+                " ✨",
+                " 💫",
+                " 🔥"
+            ]
+            content += random.choice(variations)
+        
+        return content

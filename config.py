@@ -106,7 +106,7 @@ class Config:
     ANTHROPIC_API_KEY = os.getenv('ANTHROPIC_API_KEY')
     
     # Configuración de IA
-    USE_AI_CONTENT = os.getenv('USE_AI_CONTENT', 'true').lower() == 'true'
+    USE_AI_CONTENT = os.getenv('USE_AI_CONTENT', 'false').lower() == 'true'
     AI_MODEL_PREFERENCE = os.getenv('AI_MODEL_PREFERENCE', 'openrouter')  # 'openrouter', 'openai' o 'anthropic'
     
     # Fuentes de YouTube para tecnología
