@@ -24,6 +24,13 @@ except ImportError:
     ANTHROPIC_AVAILABLE = False
     logger.warning("⚠️ Anthropic no disponible. Instala: pip install anthropic")
 
+try:
+    import requests
+    REQUESTS_AVAILABLE = True
+except ImportError:
+    REQUESTS_AVAILABLE = False
+    logger.warning("⚠️ Requests no disponible. Instala: pip install requests")
+
 class AIContentGenerator:
     """Generador de contenido usando modelos de IA"""
     
@@ -41,6 +48,13 @@ class AIContentGenerator:
         """Configura las APIs de IA disponibles"""
         self.openai_client = None
         self.anthropic_client = None
+        self.qwen_available = False
+        
+        # Qwen API (prioridad)
+        if REQUESTS_AVAILABLE and os.getenv('QWEN_API_KEY'):
+            self.qwen_api_key = os.getenv('QWEN_API_KEY')
+            self.qwen_available = True
+            logger.info("✅ Qwen API configurada")
         
         # OpenAI
         if OPENAI_AVAILABLE and os.getenv('OPENAI_API_KEY'):
@@ -55,7 +69,7 @@ class AIContentGenerator:
             )
             logger.info("✅ Anthropic configurado")
         
-        if not self.openai_client and not self.anthropic_client:
+        if not self.qwen_available and not self.openai_client and not self.anthropic_client:
             logger.warning("⚠️ No hay APIs de IA configuradas")
     
     def _init_prompts(self):
@@ -295,14 +309,70 @@ Genera 3 versiones diferentes."""
             if article_text:
                 prompt_template += f"\n\nContexto del artículo:\n{article_text[:1000]}..."
             
-            # Generar contenido usando IA
-            if self.openai_client:
+            # Generar contenido usando IA (prioridad: Qwen > OpenAI > Anthropic)
+            if self.qwen_available:
+                return self._generate_with_qwen(prompt_template, content_type)
+            elif self.openai_client:
                 return self._generate_with_openai(prompt_template, content_type)
             elif self.anthropic_client:
                 return self._generate_with_anthropic(prompt_template, content_type)
             
         except Exception as e:
             logger.error(f"❌ Error generando contenido con IA: {e}")
+            return None
+    
+    def _generate_with_qwen(self, prompt: str, content_type: str) -> Optional[str]:
+        """Genera contenido usando Qwen API"""
+        try:
+            import requests
+            
+            # URL de la API de Qwen
+            url = "https://api.qwen.com/v1/chat/completions"
+            
+            headers = {
+                "Authorization": f"Bearer {self.qwen_api_key}",
+                "Content-Type": "application/json"
+            }
+            
+            data = {
+                "model": "qwen-coder-480b-a35b",
+                "messages": [
+                    {
+                        "role": "system",
+                        "content": "Eres un experto en marketing digital y creación de contenido viral para redes sociales. Especializado en tecnología y programación. Responde siempre en español."
+                    },
+                    {
+                        "role": "user",
+                        "content": prompt
+                    }
+                ],
+                "max_tokens": 500,
+                "temperature": 0.8,
+                "top_p": 0.9
+            }
+            
+            response = requests.post(url, headers=headers, json=data, timeout=30)
+            
+            if response.status_code == 200:
+                result = response.json()
+                content = result['choices'][0]['message']['content'].strip()
+                
+                # Seleccionar la mejor versión si hay múltiples
+                if "1." in content and "2." in content:
+                    versions = content.split("\n\n")
+                    content = random.choice(versions)
+                
+                # Limpiar y formatear
+                content = self._clean_content(content)
+                
+                logger.info(f"✅ Contenido generado con Qwen: {content_type}")
+                return content
+            else:
+                logger.error(f"❌ Error con Qwen API: {response.status_code} - {response.text}")
+                return None
+                
+        except Exception as e:
+            logger.error(f"❌ Error con Qwen: {e}")
             return None
     
     def _generate_with_openai(self, prompt: str, content_type: str) -> Optional[str]:
@@ -445,4 +515,4 @@ Genera 3 versiones diferentes."""
     
     def is_available(self) -> bool:
         """Verifica si las APIs de IA están disponibles"""
-        return bool(self.openai_client or self.anthropic_client)
+        return bool(self.qwen_available or self.openai_client or self.anthropic_client)

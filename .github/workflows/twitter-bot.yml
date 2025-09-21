@@ -58,6 +58,9 @@ jobs:
           echo "NEWS_API_KEY=${{ secrets.NEWS_API_KEY }}" >> $GITHUB_ENV
           echo "REDDIT_CLIENT_ID=${{ secrets.REDDIT_CLIENT_ID }}" >> $GITHUB_ENV
           echo "REDDIT_CLIENT_SECRET=${{ secrets.REDDIT_CLIENT_SECRET }}" >> $GITHUB_ENV
+          echo "QWEN_API_KEY=${{ secrets.QWEN_API_KEY }}" >> $GITHUB_ENV
+          echo "USE_AI_CONTENT=true" >> $GITHUB_ENV
+          echo "AI_MODEL_PREFERENCE=qwen" >> $GITHUB_ENV
           echo "TWITTER_USERNAME=ztech" >> $GITHUB_ENV
           echo "POSTING_SCHEDULE=09:00,18:00" >> $GITHUB_ENV
           echo "TIMEZONE=America/Mexico_City" >> $GITHUB_ENV
