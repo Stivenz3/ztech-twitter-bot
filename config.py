@@ -100,6 +100,14 @@ class Config:
     REDDIT_CLIENT_ID = os.getenv('REDDIT_CLIENT_ID')
     REDDIT_CLIENT_SECRET = os.getenv('REDDIT_CLIENT_SECRET')
     
+    # APIs de IA para generación de contenido
+    OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
+    ANTHROPIC_API_KEY = os.getenv('ANTHROPIC_API_KEY')
+    
+    # Configuración de IA
+    USE_AI_CONTENT = os.getenv('USE_AI_CONTENT', 'true').lower() == 'true'
+    AI_MODEL_PREFERENCE = os.getenv('AI_MODEL_PREFERENCE', 'openai')  # 'openai' o 'anthropic'
+    
     # Fuentes de YouTube para tecnología
     YOUTUBE_CHANNELS = [
         'UCBJycsmduvYEL83R_U4JriQ',  # Marques Brownlee

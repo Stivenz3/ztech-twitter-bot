@@ -17,6 +17,7 @@ from content_sources import ContentAggregator
 from content_processor import ContentProcessor
 from enhanced_content_processor import EnhancedContentProcessor
 from content_generator import ContentGenerator
+from ai_content_generator import AIContentGenerator
 from expanded_content_sources import ExpandedContentSources
 
 class ZTechBot:
@@ -30,6 +31,7 @@ class ZTechBot:
         self.content_processor = ContentProcessor()
         self.enhanced_processor = EnhancedContentProcessor()
         self.content_generator = ContentGenerator()
+        self.ai_generator = AIContentGenerator()
         self.expanded_sources = ExpandedContentSources()
         
         # Configurar logging
@@ -401,8 +403,21 @@ class ZTechBot:
             True si se publicó exitosamente, False en caso contrario
         """
         try:
-            # Generar contenido
-            tweet_content = self.content_generator.generate_content(post_type)
+            # Intentar generar con IA primero si está disponible
+            tweet_content = None
+            source = "ContentGenerator"
+            
+            if Config.USE_AI_CONTENT and self.ai_generator.is_available():
+                logger.info(f"🤖 Generando contenido con IA: {post_type}")
+                tweet_content = self.ai_generator.generate_content(post_type)
+                if tweet_content:
+                    source = "AIContentGenerator"
+                    logger.info("✅ Contenido generado con IA")
+            
+            # Si IA no está disponible o falló, usar generador tradicional
+            if not tweet_content:
+                logger.info(f"📝 Generando contenido tradicional: {post_type}")
+                tweet_content = self.content_generator.generate_content(post_type)
             
             if not tweet_content:
                 logger.warning(f"⚠️ No se pudo generar contenido para {post_type}")
@@ -416,13 +431,13 @@ class ZTechBot:
                 content_hash = f"generated_{post_type}_{hash(tweet_content)}"
                 self.db.save_processed_content(
                     content_hash=content_hash,
-                    source="ContentGenerator",
+                    source=source,
                     source_url="",
                     title=f"Generated {post_type}",
                     summary=tweet_content[:200] + "..." if len(tweet_content) > 200 else tweet_content
                 )
                 
-                logger.success(f"✅ Tweet generado publicado exitosamente: {post_type}")
+                logger.success(f"✅ Tweet generado publicado exitosamente: {post_type} ({source})")
                 self.stats['tweets_published'] += 1
                 return True
             else:
