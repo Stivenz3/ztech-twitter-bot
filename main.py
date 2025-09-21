@@ -34,9 +34,9 @@ def main():
     
     parser.add_argument(
         '--post-type',
-        choices=['single', 'curated'],
-        default='single',
-        help='Tipo de publicación (solo para modo single)'
+        choices=['auto', 'single', 'curated', 'hacks', 'protips', 'top_lists', 'curiosities', 'controversial', 'history', 'trends', 'reviews'],
+        default='auto',
+        help='Tipo de publicación (auto = selección automática)'
     )
     
     parser.add_argument(
@@ -75,9 +75,16 @@ def main():
             # Modo de publicación única
             logger.info(f"📝 Modo de publicación única ({args.post_type})")
             
-            if args.post_type == 'curated':
+            if args.post_type == 'auto':
+                # Selección automática del tipo
+                success = bot.run_single_post()
+            elif args.post_type == 'curated':
                 success = bot.run_curated_post()
+            elif args.post_type in ['hacks', 'protips', 'top_lists', 'curiosities', 'controversial', 'history', 'trends', 'reviews']:
+                # Contenido generado
+                success = bot._post_generated_content(args.post_type)
             else:
+                # Noticias (single)
                 success = bot.run_single_post()
             
             if success:

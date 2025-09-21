@@ -15,11 +15,20 @@ on:
       post_type:
         description: "Tipo de publicación"
         required: true
-        default: "single"
+        default: "auto"
         type: choice
         options:
+          - auto
           - single
           - curated
+          - hacks
+          - protips
+          - top_lists
+          - curiosities
+          - controversial
+          - history
+          - trends
+          - reviews
 
 jobs:
   tweet:
@@ -63,9 +72,13 @@ jobs:
       - name: Ejecutar bot
         run: |
           if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
-            python main.py --mode single --post-type ${{ github.event.inputs.post_type }}
+            if [ "${{ github.event.inputs.post_type }}" = "auto" ]; then
+              python main.py --mode single
+            else
+              python main.py --mode single --post-type ${{ github.event.inputs.post_type }}
+            fi
           else
-            python main.py --mode single --post-type single
+            python main.py --mode single
           fi
 
       - name: Subir logs (si hay errores)
