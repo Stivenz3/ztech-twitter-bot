@@ -15,6 +15,7 @@ from database import DatabaseManager
 from twitter_client import TwitterClient
 from content_sources import ContentAggregator
 from content_processor import ContentProcessor
+from enhanced_content_processor import EnhancedContentProcessor
 
 class ZTechBot:
     """Bot principal de Twitter ZTech"""
@@ -25,6 +26,7 @@ class ZTechBot:
         self.twitter = TwitterClient()
         self.content_aggregator = ContentAggregator()
         self.content_processor = ContentProcessor()
+        self.enhanced_processor = EnhancedContentProcessor()
         
         # Configurar logging
         self._setup_logging()
@@ -97,8 +99,8 @@ class ZTechBot:
             # Seleccionar artículo aleatorio
             selected_article = unprocessed_content[0]  # Tomar el más reciente
             
-            # Procesar artículo a tweet
-            tweet_content = self.content_processor.process_article_to_tweet(selected_article)
+            # Procesar artículo a tweet con procesador mejorado
+            tweet_content = self.enhanced_processor.process_article_to_tweet(selected_article)
             
             if not tweet_content:
                 logger.warning("⚠️ No se pudo procesar el artículo a tweet")

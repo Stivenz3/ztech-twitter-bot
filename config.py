@@ -32,6 +32,41 @@ class Config:
     HASHTAGS = os.getenv('HASHTAGS', '#tecnologia #innovacion #AI #programacion').split()
     CONTENT_SOURCES = os.getenv('CONTENT_SOURCES', 'rss,reddit,newsapi').split(',')
     
+    # Configuración de engagement
+    USE_CONTROVERSIAL_TITLES = os.getenv('USE_CONTROVERSIAL_TITLES', 'true').lower() == 'true'
+    USE_IMAGES = os.getenv('USE_IMAGES', 'true').lower() == 'true'
+    MIN_CONTENT_LENGTH = int(os.getenv('MIN_CONTENT_LENGTH', '150'))
+    
+    # Configuración de idiomas por región
+    US_LANGUAGE = 'en'
+    COLOMBIA_LANGUAGE = 'es'
+    
+    # Palabras clave para títulos polémicos
+    CONTROVERSIAL_KEYWORDS = {
+        'en': [
+            'shocking', 'breaking', 'exclusive', 'controversial', 'scandal', 
+            'revolutionary', 'game-changing', 'unprecedented', 'explosive',
+            'leaked', 'exposed', 'revealed', 'outrageous', 'incredible'
+        ],
+        'es': [
+            'impactante', 'exclusivo', 'controversial', 'escándalo', 'revolucionario',
+            'cambia el juego', 'sin precedentes', 'explosivo', 'filtrado', 'expuesto',
+            'revelado', 'escandaloso', 'increíble', 'sorprendente', 'polémico'
+        ]
+    }
+    
+    # URLs de imágenes por categoría
+    IMAGE_URLS = {
+        'ai': 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=600&fit=crop',
+        'programming': 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&h=600&fit=crop',
+        'startup': 'https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=800&h=600&fit=crop',
+        'cybersecurity': 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&h=600&fit=crop',
+        'blockchain': 'https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=800&h=600&fit=crop',
+        'hardware': 'https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=800&h=600&fit=crop',
+        'mobile': 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&h=600&fit=crop',
+        'default': 'https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=800&h=600&fit=crop'
+    }
+    
     # APIs externas
     NEWS_API_KEY = os.getenv('NEWS_API_KEY')
     REDDIT_CLIENT_ID = os.getenv('REDDIT_CLIENT_ID')
@@ -44,9 +79,9 @@ class Config:
     LOG_LEVEL = os.getenv('LOG_LEVEL', 'INFO')
     LOG_FILE = os.getenv('LOG_FILE', 'logs/ztech_bot.log')
     
-    # URLs de fuentes RSS de tecnología (expandidas)
-    RSS_FEEDS = [
-        # Fuentes principales en inglés
+    # URLs de fuentes RSS organizadas por región e idioma
+    RSS_FEEDS_US = [
+        # Fuentes principales en inglés para Estados Unidos
         'https://techcrunch.com/feed/',
         'https://www.wired.com/feed/rss',
         'https://feeds.arstechnica.com/arstechnica/index/',
@@ -71,13 +106,6 @@ class Config:
         'https://www.artificialintelligence-news.com/feed/',
         'https://machinelearningmastery.com/feed/',
         
-        # Fuentes en español
-        'https://www.xataka.com/tag/tecnologia/rss2.xml',
-        'https://www.genbeta.com/rss2.xml',
-        'https://www.omicrono.com/feed/',
-        'https://www.elandroidelibre.com/feed',
-        'https://www.applesfera.com/rss2.xml',
-        
         # Fuentes de startups y emprendimiento
         'https://techstartups.com/feed/',
         'https://www.startupgrind.com/blog/feed/',
@@ -86,7 +114,6 @@ class Config:
         # Fuentes de ciberseguridad
         'https://krebsonsecurity.com/feed/',
         'https://www.darkreading.com/rss.xml',
-        'https://feeds.feedburner.com/eset/blog',
         
         # Fuentes de blockchain y crypto
         'https://cointelegraph.com/rss',
@@ -98,6 +125,46 @@ class Config:
         'https://www.tomshardware.com/feeds/all',
         'https://www.pcworld.com/index.rss'
     ]
+    
+    RSS_FEEDS_COLOMBIA = [
+        # Fuentes en español para Colombia
+        'https://www.xataka.com/tag/tecnologia/rss2.xml',
+        'https://www.genbeta.com/rss2.xml',
+        'https://www.omicrono.com/feed/',
+        'https://www.elandroidelibre.com/feed',
+        'https://www.applesfera.com/rss2.xml',
+        'https://feeds.feedburner.com/eset/blog',
+        
+        # Fuentes específicas de Colombia
+        'https://www.enter.co/feed/',
+        'https://www.portafolio.co/rss/tecnologia',
+        'https://www.semana.com/rss/tecnologia',
+        'https://www.eltiempo.com/rss/tecnologia.xml',
+        'https://www.elespectador.com/rss/tecnologia',
+        'https://www.pulzo.com/rss/tecnologia',
+        'https://www.larepublica.co/rss/tecnologia',
+        'https://www.dinero.com/rss/tecnologia',
+        
+        # Fuentes latinoamericanas
+        'https://www.fayerwayer.com/feed/',
+        'https://www.tekcrispy.com/feed/',
+        'https://www.unocero.com/feed/',
+        'https://www.xataka.com.mx/feed',
+        'https://www.techbiz.com/feed/',
+        
+        # Fuentes de startups colombianas
+        'https://www.wayra.com/blog/feed/',
+        'https://www.rocket.co/blog/feed/',
+        'https://www.innpulsacolombia.com/feed/',
+        
+        # Fuentes de ciberseguridad en español
+        'https://www.segu-info.com.ar/feed/',
+        'https://www.securitybydefault.com/feed/',
+        'https://www.hackplayers.com/feed/'
+    ]
+    
+    # Fuentes generales (para compatibilidad)
+    RSS_FEEDS = RSS_FEEDS_US + RSS_FEEDS_COLOMBIA
     
     # Subreddits de tecnología (expandidos)
     REDDIT_SUBREDDITS = [
