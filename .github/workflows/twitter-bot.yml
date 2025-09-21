@@ -4,7 +4,7 @@ on:
   schedule:
     # Horarios optimizados para Colombia (GMT-5) y Estados Unidos (GMT-4)
     # 12:00 PM Colombia (5:00 PM UTC) - Mediodía para Latinoamérica
-    # 6:00 PM Colombia (11:00 PM UTC) - Fin de jornada para Latinoamérica  
+    # 6:00 PM Colombia (11:00 PM UTC) - Fin de jornada para Latinoamérica
     # 9:00 AM Estados Unidos Este (1:00 PM UTC) - Mañana para US
     # 6:00 PM Estados Unidos Este (10:00 PM UTC) - Fin de jornada para US
     - cron: "0 13,17,22,23 * * *"
