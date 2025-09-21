@@ -423,7 +423,7 @@ class ZTechBot:
                 )
                 
                 logger.success(f"✅ Tweet generado publicado exitosamente: {post_type}")
-                self.stats['tweets_posted'] += 1
+                self.stats['tweets_published'] += 1
                 return True
             else:
                 logger.error("❌ Error al publicar tweet generado")
