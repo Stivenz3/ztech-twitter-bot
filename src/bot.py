@@ -414,12 +414,12 @@ class ZTechBot:
             if success:
                 # Marcar como procesado
                 content_hash = f"generated_{post_type}_{hash(tweet_content)}"
-                self.db.mark_content_processed(
+                self.db.save_processed_content(
                     content_hash=content_hash,
-                    content_url="",
-                    content_title=f"Generated {post_type}",
-                    content_source="ContentGenerator",
-                    tweet_content=tweet_content
+                    source="ContentGenerator",
+                    source_url="",
+                    title=f"Generated {post_type}",
+                    summary=tweet_content[:200] + "..." if len(tweet_content) > 200 else tweet_content
                 )
                 
                 logger.success(f"✅ Tweet generado publicado exitosamente: {post_type}")
