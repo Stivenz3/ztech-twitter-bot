@@ -86,7 +86,7 @@ PART 1 - The Hook (200-280 characters):
 - Have a hook that makes people want to try it
 - Include relevant hashtags
 
-PART 2 - The Explanation (500+ characters):
+PART 2 - The Explanation (200-250 characters):
 - Provide a detailed explanation of HOW to use the hack
 - Explain WHY this hack is useful and when to use it
 - Include step-by-step instructions or context
@@ -96,7 +96,7 @@ PART 2 - The Explanation (500+ characters):
 Example format:
 "HACK: Use Ctrl+Shift+T to reopen closed browser tabs! 🚀
 
-[Detailed 500+ character explanation about how this works, why it's useful, when to use it, and additional related browser shortcuts]"
+[Detailed 200-250 character explanation about how this works, why it's useful, when to use it, and additional related browser shortcuts]"
 
 Create 1-2 versions of this detailed hack tweet.""",
                 'es': """Crea un tweet viral de hack tecnológico con una explicación detallada. El tweet debe tener DOS partes:
@@ -108,7 +108,7 @@ PARTE 1 - El Gancho (200-280 caracteres):
 - Tiene un gancho que haga que la gente quiera probarlo
 - Incluye hashtags relevantes
 
-PARTE 2 - La Explicación (500+ caracteres):
+PARTE 2 - La Explicación (200-250 caracteres):
 - Proporciona una explicación detallada de CÓMO usar el hack
 - Explica POR QUÉ este hack es útil y cuándo usarlo
 - Incluye instrucciones paso a paso o contexto
@@ -118,7 +118,7 @@ PARTE 2 - La Explicación (500+ caracteres):
 Formato de ejemplo:
 "HACK: ¡Usa Ctrl+Shift+T para reabrir pestañas cerradas del navegador! 🚀
 
-[Explicación detallada de 500+ caracteres sobre cómo funciona esto, por qué es útil, cuándo usarlo y atajos adicionales del navegador]"
+[Explicación detallada de 200-250 caracteres sobre cómo funciona esto, por qué es útil, cuándo usarlo y atajos adicionales del navegador]"
 
 Crea 1-2 versiones de este tweet de hack detallado."""
             },
@@ -133,7 +133,7 @@ PART 1 - The Hook (200-280 characters):
 - Include relevant hashtags
 - Appeal to developers, engineers, or tech workers
 
-PART 2 - The Explanation (500+ characters):
+PART 2 - The Explanation (200-250 characters):
 - Provide a detailed explanation of WHY this tip matters
 - Include specific examples or scenarios
 - Explain the impact or benefit in detail
@@ -143,7 +143,7 @@ PART 2 - The Explanation (500+ characters):
 Example format:
 "PRO TIP: Always backup your code before major changes! 💾
 
-[Detailed 500+ character explanation about version control, best practices, disaster recovery, and the importance of backups in professional development]"
+[Detailed 200-250 character explanation about version control, best practices, disaster recovery, and the importance of backups in professional development]"
 
 Create 1-2 versions of this detailed pro tip tweet.""",
                 'es': """Crea un tweet de consejo profesional tecnológico con una explicación detallada. El tweet debe tener DOS partes:
@@ -155,7 +155,7 @@ PARTE 1 - El Gancho (200-280 caracteres):
 - Incluye hashtags relevantes
 - Atrae a desarrolladores, ingenieros o trabajadores tech
 
-PARTE 2 - La Explicación (500+ caracteres):
+PARTE 2 - La Explicación (200-250 caracteres):
 - Proporciona una explicación detallada de POR QUÉ este consejo importa
 - Incluye ejemplos específicos o escenarios
 - Explica el impacto o beneficio en detalle
@@ -165,7 +165,7 @@ PARTE 2 - La Explicación (500+ caracteres):
 Formato de ejemplo:
 "PRO TIP: ¡Siempre respalda tu código antes de cambios importantes! 💾
 
-[Explicación detallada de 500+ caracteres sobre control de versiones, mejores prácticas, recuperación de desastres y la importancia de respaldos en desarrollo profesional]"
+[Explicación detallada de 200-250 caracteres sobre control de versiones, mejores prácticas, recuperación de desastres y la importancia de respaldos en desarrollo profesional]"
 
 Crea 1-2 versiones de este tweet de consejo profesional detallado."""
             },
@@ -180,7 +180,7 @@ PART 1 - The Hook (200-280 characters):
 - Use engaging emojis
 - Include relevant hashtags
 
-PART 2 - The Explanation (500+ characters):
+PART 2 - The Explanation (200-250 characters):
 - Provide a detailed paragraph explaining the curiosity
 - Include historical context, technical details, and implications
 - Explain WHY this fact is important or interesting
@@ -190,7 +190,7 @@ PART 2 - The Explanation (500+ characters):
 Example format:
 "CURIOSITY: The first password was created in 1961 at MIT! 🔐
 
-[Detailed 500+ character explanation about the history of passwords, how they evolved, their importance in cybersecurity, and their impact on modern technology]"
+[Detailed 200-250 character explanation about the history of passwords, how they evolved, their importance in cybersecurity, and their impact on modern technology]"
 
 Create 1-2 versions of this detailed curiosity tweet.""",
                 'es': """Crea un tweet de curiosidad tecnológica fascinante con una explicación detallada. El tweet debe tener DOS partes:
@@ -202,7 +202,7 @@ PARTE 1 - El Gancho (200-280 caracteres):
 - Usa emojis atractivos
 - Incluye hashtags relevantes
 
-PARTE 2 - La Explicación (500+ caracteres):
+PARTE 2 - La Explicación (200-250 caracteres):
 - Proporciona un párrafo detallado explicando la curiosidad
 - Incluye contexto histórico, detalles técnicos e implicaciones
 - Explica POR QUÉ este hecho es importante o interesante
@@ -212,7 +212,7 @@ PARTE 2 - La Explicación (500+ caracteres):
 Formato de ejemplo:
 "CURIOSIDAD: ¡La primera contraseña fue creada en 1961 en MIT! 🔐
 
-[Explicación detallada de 500+ caracteres sobre la historia de las contraseñas, cómo evolucionaron, su importancia en ciberseguridad y su impacto en la tecnología moderna]"
+[Explicación detallada de 200-250 caracteres sobre la historia de las contraseñas, cómo evolucionaron, su importancia en ciberseguridad y su impacto en la tecnología moderna]"
 
 Crea 1-2 versiones de este tweet de curiosidad detallado."""
             },
@@ -227,7 +227,7 @@ PART 1 - The Hook (200-280 characters):
 - Use strong, confident language
 - Include relevant hashtags
 
-PART 2 - The Explanation (500+ characters):
+PART 2 - The Explanation (200-250 characters):
 - Provide a detailed explanation of WHY you hold this opinion
 - Include specific examples, data, or evidence
 - Explain the implications and consequences
@@ -237,7 +237,7 @@ PART 2 - The Explanation (500+ characters):
 Example format:
 "CONTROVERSIAL: AI will replace most developers within 5 years! 🤖
 
-[Detailed 500+ character explanation about AI development trends, automation capabilities, job market analysis, and the future of software development]"
+[Detailed 200-250 character explanation about AI development trends, automation capabilities, job market analysis, and the future of software development]"
 
 Create 1-2 versions of this detailed controversial tweet.""",
                 'es': """Crea un tweet de opinión tecnológica controversial con una explicación detallada. El tweet debe tener DOS partes:
@@ -249,7 +249,7 @@ PARTE 1 - El Gancho (200-280 caracteres):
 - Usa lenguaje fuerte y confiado
 - Incluye hashtags relevantes
 
-PARTE 2 - La Explicación (500+ caracteres):
+PARTE 2 - La Explicación (200-250 caracteres):
 - Proporciona una explicación detallada de POR QUÉ sostienes esta opinión
 - Incluye ejemplos específicos, datos o evidencia
 - Explica las implicaciones y consecuencias
@@ -259,7 +259,7 @@ PARTE 2 - La Explicación (500+ caracteres):
 Formato de ejemplo:
 "CONTROVERSIAL: ¡La IA reemplazará a la mayoría de desarrolladores en 5 años! 🤖
 
-[Explicación detallada de 500+ caracteres sobre tendencias de desarrollo de IA, capacidades de automatización, análisis del mercado laboral y el futuro del desarrollo de software]"
+[Explicación detallada de 200-250 caracteres sobre tendencias de desarrollo de IA, capacidades de automatización, análisis del mercado laboral y el futuro del desarrollo de software]"
 
 Crea 1-2 versiones de este tweet controversial detallado."""
             },
@@ -274,7 +274,7 @@ PART 1 - The Hook (200-280 characters):
 - Include relevant hashtags
 - Make it shareable and interesting
 
-PART 2 - The Explanation (500+ characters):
+PART 2 - The Explanation (200-250 characters):
 - Provide detailed explanations for each item in the list
 - Include specific examples, data, or evidence
 - Explain WHY each item deserves its ranking
@@ -284,7 +284,7 @@ PART 2 - The Explanation (500+ characters):
 Example format:
 "TOP 5: Las mejores herramientas de desarrollo para 2024! 🛠️
 
-[Detailed 500+ character explanation about each tool, why they're ranked this way, their features, benefits, and how they compare to alternatives]"
+[Detailed 200-250 character explanation about each tool, why they're ranked this way, their features, benefits, and how they compare to alternatives]"
 
 Create 1-2 versions of this detailed top list tweet.""",
                 'es': """Crea un tweet de ranking tecnológico atractivo con explicaciones detalladas. El tweet debe tener DOS partes:
@@ -296,7 +296,7 @@ PARTE 1 - El Gancho (200-280 caracteres):
 - Incluye hashtags relevantes
 - Hazlo compartible e interesante
 
-PARTE 2 - La Explicación (500+ caracteres):
+PARTE 2 - La Explicación (200-250 caracteres):
 - Proporciona explicaciones detalladas para cada elemento de la lista
 - Incluye ejemplos específicos, datos o evidencia
 - Explica POR QUÉ cada elemento merece su ranking
@@ -306,7 +306,7 @@ PARTE 2 - La Explicación (500+ caracteres):
 Formato de ejemplo:
 "TOP 5: ¡Las mejores herramientas de desarrollo para 2024! 🛠️
 
-[Explicación detallada de 500+ caracteres sobre cada herramienta, por qué están rankeadas así, sus características, beneficios y cómo se comparan con alternativas]"
+[Explicación detallada de 200-250 caracteres sobre cada herramienta, por qué están rankeadas así, sus características, beneficios y cómo se comparan con alternativas]"
 
 Crea 1-2 versiones de este tweet de ranking detallado."""
             },
@@ -321,7 +321,7 @@ PART 1 - The Hook (200-280 characters):
 - Include relevant hashtags
 - Make it educational and nostalgic
 
-PART 2 - The Explanation (500+ characters):
+PART 2 - The Explanation (200-250 characters):
 - Provide detailed historical context and background
 - Explain the significance and impact of the event
 - Include information about key people involved
@@ -331,7 +331,7 @@ PART 2 - The Explanation (500+ characters):
 Example format:
 "HISTORY: On this day in 1995, Amazon was founded! 📚➡️🌐
 
-[Detailed 500+ character explanation about Amazon's founding, its evolution from bookstore to tech giant, key milestones, and its impact on e-commerce and cloud computing]"
+[Detailed 200-250 character explanation about Amazon's founding, its evolution from bookstore to tech giant, key milestones, and its impact on e-commerce and cloud computing]"
 
 Create 1-2 versions of this detailed history tweet.""",
                 'es': """Crea un tweet de historia tecnológica atractivo con contexto detallado. El tweet debe tener DOS partes:
@@ -343,7 +343,7 @@ PARTE 1 - El Gancho (200-280 caracteres):
 - Incluye hashtags relevantes
 - Hazlo educativo y nostálgico
 
-PARTE 2 - La Explicación (500+ caracteres):
+PARTE 2 - La Explicación (200-250 caracteres):
 - Proporciona contexto histórico detallado y antecedentes
 - Explica la importancia e impacto del evento
 - Incluye información sobre las personas clave involucradas
@@ -353,7 +353,7 @@ PARTE 2 - La Explicación (500+ caracteres):
 Formato de ejemplo:
 "HISTORIA: ¡Un día como hoy en 1995, Amazon fue fundada! 📚➡️🌐
 
-[Explicación detallada de 500+ caracteres sobre la fundación de Amazon, su evolución de librería a gigante tech, hitos clave y su impacto en e-commerce y computación en la nube]"
+[Explicación detallada de 200-250 caracteres sobre la fundación de Amazon, su evolución de librería a gigante tech, hitos clave y su impacto en e-commerce y computación en la nube]"
 
 Crea 1-2 versiones de este tweet de historia detallado."""
             },
@@ -368,7 +368,7 @@ PART 1 - The Hook (200-280 characters):
 - Include relevant hashtags
 - Make it timely and relevant
 
-PART 2 - The Explanation (500+ characters):
+PART 2 - The Explanation (200-250 characters):
 - Provide detailed analysis of the trend
 - Include data, statistics, or market insights
 - Explain WHY this trend is important
@@ -390,7 +390,7 @@ PARTE 1 - El Gancho (200-280 caracteres):
 - Incluye hashtags relevantes
 - Hazlo oportuno y relevante
 
-PARTE 2 - La Explicación (500+ caracteres):
+PARTE 2 - La Explicación (200-250 caracteres):
 - Proporciona análisis detallado de la tendencia
 - Incluye datos, estadísticas o insights del mercado
 - Explica POR QUÉ esta tendencia es importante
@@ -415,7 +415,7 @@ PART 1 - The Hook (200-280 characters):
 - Include relevant hashtags
 - Make it informative and honest
 
-PART 2 - The Explanation (500+ characters):
+PART 2 - The Explanation (200-250 characters):
 - Provide detailed pros and cons analysis
 - Include specific examples and use cases
 - Explain the target audience and use cases
@@ -437,7 +437,7 @@ PARTE 1 - El Gancho (200-280 caracteres):
 - Incluye hashtags relevantes
 - Hazlo informativo y honesto
 
-PARTE 2 - La Explicación (500+ caracteres):
+PARTE 2 - La Explicación (200-250 caracteres):
 - Proporciona análisis detallado de pros y contras
 - Incluye ejemplos específicos y casos de uso
 - Explica el público objetivo y casos de uso
@@ -518,7 +518,7 @@ Crea 1-2 versiones de este tweet de reseña detallado."""
                         "content": prompt
                     }
                 ],
-                "max_tokens": 1000,
+                "max_tokens": 400,
                 "temperature": 0.8,
                 "top_p": 0.9
             }
@@ -644,8 +644,8 @@ Crea 1-2 versiones de este tweet de reseña detallado."""
             logger.warning("⚠️ Contenido generado muy corto o inválido, reintentando...")
             return None
         
-        # Para contenido mejorado, permitir más caracteres
-        if len(content) > 1000:
-            content = content[:1000-3] + "..."
+        # Para contenido mejorado, limitar a 280 caracteres para Twitter
+        if len(content) > 280:
+            content = content[:280-3] + "..."
         
         return content
